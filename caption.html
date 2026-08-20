@@ -17,7 +17,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- 字型以非阻擋方式載入：抓不到或很慢時，頁面照樣用系統字型渲染，
+     inline script 也不會被待處理的樣式表卡住（離線時尤其重要）。 -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet" media="print" onload="this.media='all';this.onload=null">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 <style>
 :root{
   color-scheme:light dark;
@@ -715,6 +719,14 @@ $('copy').addEventListener('click', function(){
     legacy();
   }
 });
+
+/* 從指南某一章過來的話，「回指南」就回到那一章，不要跳回開頭 */
+(function(){
+  var m = (location.search || '').match(/[?&]from=(c\d{1,3})(?:&|$)/);
+  if(!m){ return; }
+  var home = document.querySelector('#bar a.home');
+  if(home){ home.setAttribute('href', './index.html#' + m[1]); }
+})();
 
 /* 日間 / 夜間，與指南同一套循環 */
 var THEMES = [['auto','自動'],['light','日間'],['dark','夜間']], ti = 0;

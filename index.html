@@ -17,7 +17,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- 字型以非阻擋方式載入：抓不到或很慢時，頁面照樣用系統字型渲染，
+     inline script 也不會被待處理的樣式表卡住（離線時尤其重要）。 -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet" media="print" onload="this.media='all';this.onload=null">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 <style>
 :root{
   color-scheme:light dark;
@@ -175,6 +179,16 @@ figcaption{font-size:12.5px;color:var(--muted);margin-top:12px;line-height:1.65}
   border-radius:3px;padding:1px 5px}
 #bar .skbtn{flex:0 0 auto;width:38px;height:34px;font-size:14px;color:#fff}
 .skbtn:focus-visible{outline:2px solid var(--afline);outline-offset:2px}
+
+/* 側邊欄的工具連結 */
+.brand .tool{display:flex;align-items:center;justify-content:space-between;gap:8px;
+  width:100%;margin-top:10px;padding:9px 11px;background:none;border:1px solid #454B50;
+  border-radius:5px;color:#CFD3D6;text-decoration:none;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;line-height:1.4}
+.brand .tool:hover{color:#fff;border-color:#6E767C}
+.brand .tool:focus-visible{outline:2px solid var(--afline);outline-offset:2px}
+.brand .tool .tag{font-size:10px;color:#8C9399;border:1px solid #454B50;
+  border-radius:3px;padding:1px 5px;white-space:nowrap}
 
 #sk{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.55);
   display:flex;align-items:flex-start;justify-content:center;
@@ -379,6 +393,7 @@ mark.hit{background:rgba(55,201,122,.34);color:inherit;border-radius:2px;
     <h1>新手完全指南</h1>
     <p>每一項設定都對照官方繁體中文<br>操作說明書,標明出處頁碼</p>
     <button class="skbtn skopen" type="button"><span>⌕ 搜尋整本指南</span><kbd>⌘K</kbd></button>
+    <a class="tool" id="toolLink" href="./caption.html"><span>⎘ EXIF 貼文產生器</span><span class="tag">工具</span></a>
     <button class="tgl" type="button">顯示:自動</button>
   </div>
   <div class="navgrp">入門</div>
@@ -3852,9 +3867,13 @@ RICOH IMAGING 官網 GR IV 規格頁,規格更新日期 2025 年 12 月 17 日�
     s.querySelector('.wrap').appendChild(p);
   });
 
+  /* 去工具頁時把目前章節帶過去，回來才能回到原本讀到的地方 */
+  var toolLink = document.getElementById('toolLink');
+
   function show(i, push){
     secs.forEach(function(s,j){ s.classList.toggle('on', j===i); });
     btns.forEach(function(b,j){ b.setAttribute('aria-current', j===i ? 'true' : 'false'); });
+    if(toolLink){ toolLink.setAttribute('href', './caption.html?from=c' + i); }
     bar.textContent = secs[i].getAttribute('data-t');
     document.title = secs[i].getAttribute('data-t') + ' — RICOH GR IV 新手完全指南';
     try{ clearHits(); }catch(e){}
