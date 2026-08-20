@@ -243,6 +243,51 @@ mark.hit{background:rgba(55,201,122,.34);color:inherit;border-radius:2px;
 .drill li{margin-bottom:9px;font-size:14.5px}
 .drill li:last-child{margin:0}
 
+/* 互動診斷器 */
+.dx{margin:0 0 26px}
+.dxq{margin:0 0 22px}
+.dxq>.q{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);display:block;margin-bottom:12px}
+.dxopts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.dxo{background:var(--card);border:1px solid var(--hair);border-radius:2px;padding:14px 16px;
+  cursor:pointer;font-family:var(--sans);font-size:14.5px;color:var(--text);text-align:left;
+  line-height:1.5;transition:border-color .14s ease}
+.dxo:hover{border-color:var(--rule)}
+.dxo:focus-visible{outline:2px solid var(--af);outline-offset:2px}
+.dxo[aria-pressed="true"]{border-color:var(--af);border-left:4px solid var(--af);
+  padding-left:13px;background:var(--th-bg)}
+.dxo small{display:block;font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.45}
+.dxback{background:none;border:0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  color:var(--muted);cursor:pointer;padding:6px 0;margin:0 0 14px}
+.dxback:hover{color:var(--text)}
+.dxback:focus-visible{outline:2px solid var(--af);outline-offset:2px}
+
+/* 答案卡 */
+.dxr{border:1px solid var(--hair);border-left:4px solid var(--af);background:var(--card);
+  border-radius:2px;padding:20px 22px;margin:0 0 18px}
+.dxr:focus{outline:none}
+.dxr:focus-visible{outline:2px solid var(--af);outline-offset:2px}
+.dxr h4{margin:0 0 14px;font-size:18px;line-height:1.4}
+.dxr .row{border-top:1px solid var(--hair);padding:11px 0 0;margin:11px 0 0}
+.dxr .row:first-of-type{border-top:0;padding-top:0;margin-top:0}
+.dxr .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);display:block;margin-bottom:5px}
+.dxr .v{font-size:14.5px;line-height:1.65}
+.dxr .v>*:last-child{margin-bottom:0}
+.dxr .path{margin-bottom:0}
+.dxr .go{display:inline-block;font-size:13.5px;background:none;border:0;padding:0;cursor:pointer;
+  font-family:var(--sans);color:var(--af);border-bottom:1px solid var(--af);line-height:1.4}
+.dxr .go:hover{color:var(--text);border-color:var(--text)}
+.dxr .go:focus-visible{outline:2px solid var(--af);outline-offset:2px}
+
+/* 濾鏡預覽 */
+.fx{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:12px;margin:0 0 8px}
+.fxc{border:1px solid var(--hair);background:var(--card);border-radius:2px;overflow:hidden}
+.fxc svg{display:block;width:100%;height:auto}
+.fxc b{display:block;font-size:12.5px;padding:8px 10px;border-top:1px solid var(--hair);
+  font-weight:600;letter-spacing:.02em}
+.fxnote{font-size:12px;color:var(--muted);margin:0 0 24px}
+
 /* 前後章 */
 .pager{display:flex;gap:10px;margin:44px 0 0;border-top:2px solid var(--rule);padding-top:18px}
 .pager button{flex:1;background:var(--card);border:1px solid var(--hair);padding:14px 16px;cursor:pointer;
@@ -298,6 +343,9 @@ mark.hit{background:rgba(55,201,122,.34);color:inherit;border-radius:2px;
   #nav,#bar,#sk,#toast,.pager,.osd{display:none!important}
   main{margin:0}
   section[data-ch]{display:block!important;page-break-after:always}
+  /* 互動章節:隱藏操作介面,把所有答案卡平鋪印出 */
+  .dxq,.dxback,.dxr .go{display:none!important}
+  .dxr{display:block!important;page-break-inside:avoid}
 }
 </style>
 </head>
@@ -384,6 +432,11 @@ mark.hit{background:rgba(55,201,122,.34);color:inherit;border-radius:2px;
 <tr><td>Shake Reduction</td><td>開啟</td><td>A6 拍攝輔助</td></tr>
 </table></div>
 <p><span class="src s-mine">本站建議</span> 這整張表是我替新手挑的組合。選項名稱與所在選單依 <span class="src s-man">說明書 p.26–28</span>。</p>
+
+<div class="box tip">
+<span class="lbl">拍完覺得不對?有一章會直接問你</span>
+<p style="margin-bottom:0">最後一章「<strong>互動診斷:現在該調什麼</strong>」會問你一到兩個問題,直接告訴你該調哪個參數、調到多少、在哪個選單,不用自己翻。裡面也有一個「從想要的感覺挑濾鏡」的選擇器。</p>
+</div>
 
 <div class="drill"><span class="lbl">練習 00</span>
 <ol>
@@ -2999,6 +3052,10 @@ mark.hit{background:rgba(55,201,122,.34);color:inherit;border-radius:2px;
 <h2 class="ch">拍壞了?診斷表</h2>
 <p class="sub">從「照片看起來怎樣」反推「哪個設定錯了」。這是第 26 章「疑難排解」的補充——那章講相機故障,這章講照片問題。</p>
 
+<div class="box tip">
+<p style="margin-bottom:0">這一章是<strong>完整的對照表</strong>,適合一次讀完或列印帶著。如果你只想快速解決手上這一張照片,最後一章「<strong>互動診斷:現在該調什麼</strong>」會用問答的方式直接帶你到答案。兩章的內容與出處相同,只是查法不同。</p>
+</div>
+
 <h3>照片糊掉</h3>
 <p>先分辨是哪一種糊,解法完全不同:</p>
 <figure>
@@ -3254,6 +3311,489 @@ RICOH IMAGING 官網 GR IV 規格頁,規格更新日期 2025 年 12 月 17 日�
 <p style="color:var(--muted);font-size:13px">本站為個人學習整理,非 RICOH 官方文件,與 RICOH IMAGING COMPANY, LTD. 無隸屬關係。所引用之產品名稱與商標均屬各自公司所有。</p>
 </div></section>
 
+
+<!-- ============ 28 互動診斷 ============ -->
+<section data-ch="28" data-t="互動診斷:現在該調什麼" data-g="速查">
+<div class="osd"><span class="hot">ASK</span><span>症狀</span><span>參數</span><span>路徑</span><span class="no">28 / 28</span></div>
+<div class="wrap">
+<h2 class="ch">互動診斷:現在該調什麼</h2>
+<p class="sub">回答一到兩個問題,直接告訴你調哪個參數、調到多少、在哪個選單。</p>
+
+<div class="box note">
+<p style="margin-bottom:0">這一章<strong>不提供新的事實</strong>,只把第 05～13、20、21、25 章已經標註出處的內容重新排成互動流程。每張答案卡的頁碼都沿用原章節的標註。想知道「為什麼」,每張卡片下方都有連到原章節的連結。</p>
+</div>
+
+<!-- ===== 模組 A:症狀診斷器 ===== -->
+<h3>A. 從問題反推設定</h3>
+
+<div class="dx" id="dxA">
+
+<div class="dxq" data-dx-step="root">
+  <span class="q">你現在的狀況是</span>
+  <div class="dxopts">
+    <button class="dxo" type="button" data-dx-go="qShot">我剛拍完,照片不對<small>從照片的毛病反推是哪個設定錯了</small></button>
+    <button class="dxo" type="button" data-dx-go="qLive">我正在現場,不知道怎麼設<small>看光線狀況給你一組起手設定</small></button>
+  </div>
+</div>
+
+<!-- 拍完:第一層 -->
+<div class="dxq" data-dx-step="qShot" hidden>
+  <button class="dxback" type="button" data-dx-go="root">← 重新開始</button>
+  <span class="q">照片哪裡不對</span>
+  <div class="dxopts">
+    <button class="dxo" type="button" data-dx-go="qBlur">糊掉 / 不清楚</button>
+    <button class="dxo" type="button" data-dx-go="qExp">太暗 / 太亮</button>
+    <button class="dxo" type="button" data-dx-go="qWb">顏色怪怪的</button>
+    <button class="dxo" type="button" data-dx-go="qIq">畫質髒<small>雜訊、細節糊、彩色波紋</small></button>
+    <button class="dxo" type="button" data-dx-go="qComp">構圖沒感覺</button>
+  </div>
+</div>
+
+<!-- 糊掉 -->
+<div class="dxq" data-dx-step="qBlur" hidden>
+  <button class="dxback" type="button" data-dx-go="qShot">← 上一步</button>
+  <span class="q">放大照片看,是哪一種糊</span>
+  <div class="dxopts">
+    <button class="dxo" type="button" data-dx-go="rBlurAll">整張都糊<small>連牆壁、地板也糊</small></button>
+    <button class="dxo" type="button" data-dx-go="rBlurMove">只有會動的糊<small>背景是清楚的</small></button>
+    <button class="dxo" type="button" data-dx-go="rBlurFocus">主體糊、後面清楚<small>該清楚的沒清楚</small></button>
+    <button class="dxo" type="button" data-dx-go="rBlurSnap">用了快拍卻糊</button>
+    <button class="dxo" type="button" data-dx-go="rBlurMacro">近拍怎麼拍都糊</button>
+  </div>
+</div>
+
+<!-- 亮度 -->
+<div class="dxq" data-dx-step="qExp" hidden>
+  <button class="dxback" type="button" data-dx-go="qShot">← 上一步</button>
+  <span class="q">更精確一點是</span>
+  <div class="dxopts">
+    <button class="dxo" type="button" data-dx-go="rExpWhite">白色的東西拍成灰的<small>雪地、白牆、白紙</small></button>
+    <button class="dxo" type="button" data-dx-go="rExpNight">夜景拍得像白天<small>沒有氣氛</small></button>
+    <button class="dxo" type="button" data-dx-go="rExpSky">天空整片死白</button>
+    <button class="dxo" type="button" data-dx-go="rExpBack">逆光時人臉全黑</button>
+    <button class="dxo" type="button" data-dx-go="rExpSun">大太陽下一直過曝</button>
+    <button class="dxo" type="button" data-dx-go="rExpShadow">暗部死黑沒細節</button>
+  </div>
+</div>
+
+<!-- 顏色 -->
+<div class="dxq" data-dx-step="qWb" hidden>
+  <button class="dxback" type="button" data-dx-go="qShot">← 上一步</button>
+  <span class="q">顏色是怎麼個怪法</span>
+  <div class="dxopts">
+    <button class="dxo" type="button" data-dx-go="rWbYellow">室內整片偏黃</button>
+    <button class="dxo" type="button" data-dx-go="rWbBlue">整體偏藍、很冷</button>
+    <button class="dxo" type="button" data-dx-go="rWbSunset">夕陽不夠紅</button>
+    <button class="dxo" type="button" data-dx-go="rWbUnstable">顏色時好時壞</button>
+    <button class="dxo" type="button" data-dx-go="rWbRaw">設了黑白卻是彩色<small>電腦打開變回顏色</small></button>
+  </div>
+</div>
+
+<!-- 畫質 -->
+<div class="dxq" data-dx-step="qIq" hidden>
+  <button class="dxback" type="button" data-dx-go="qShot">← 上一步</button>
+  <span class="q">哪一種髒</span>
+  <div class="dxopts">
+    <button class="dxo" type="button" data-dx-go="rIqNoise">顆粒多、暗部有雜色</button>
+    <button class="dxo" type="button" data-dx-go="rIqPlastic">細節像塑膠、糊糊的</button>
+    <button class="dxo" type="button" data-dx-go="rIqSoft">不夠銳利,但沒有糊</button>
+    <button class="dxo" type="button" data-dx-go="rIqVig">四個角比中間暗</button>
+    <button class="dxo" type="button" data-dx-go="rIqMoire">格紋衣服出現彩色波紋</button>
+  </div>
+</div>
+
+<!-- 構圖 -->
+<div class="dxq" data-dx-step="qComp" hidden>
+  <button class="dxback" type="button" data-dx-go="qShot">← 上一步</button>
+  <span class="q">是哪個狀況</span>
+  <div class="dxopts">
+    <button class="dxo" type="button" data-dx-go="rCompSmall">主體太小,看不出重點</button>
+    <button class="dxo" type="button" data-dx-go="rCompMess">畫面很亂,不知道要看哪</button>
+    <button class="dxo" type="button" data-dx-go="rCompTilt">照片老是歪的</button>
+    <button class="dxo" type="button" data-dx-go="rCompFace">人臉看起來被拉長</button>
+  </div>
+</div>
+
+<!-- 現場 -->
+<div class="dxq" data-dx-step="qLive" hidden>
+  <button class="dxback" type="button" data-dx-go="root">← 重新開始</button>
+  <span class="q">現在的光線與場合是</span>
+  <div class="dxopts">
+    <button class="dxo" type="button" data-dx-go="rLiveDay">白天在街上<small>太陽出來,人來人往</small></button>
+    <button class="dxo" type="button" data-dx-go="rLiveNight">晚上 / 光線很暗</button>
+    <button class="dxo" type="button" data-dx-go="rLiveIndoor">室內 / 陰天</button>
+    <button class="dxo" type="button" data-dx-go="rLiveMacro">拍食物或小東西</button>
+    <button class="dxo" type="button" data-dx-go="rLiveLong">車軌 / 流水長曝</button>
+  </div>
+</div>
+
+<!-- ============ 答案卡 ============ -->
+
+<div class="dxr" data-dx-card="rBlurAll" tabindex="-1" role="region" hidden>
+<h4>整張都糊 = 手震,快門太慢</h4>
+<div class="row"><span class="k">診斷</span><div class="v">快門速度慢到擋不住你手持的晃動,所以整個畫面一起位移。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v"><strong>最低快門速度</strong>提高到 <strong>1/250 秒</strong>(預設只有 1/30,拍走動的人一定糊);確認 <strong>Shake Reduction</strong> 開啟 <span class="src s-man">說明書 p.96</span>;手肘夾緊靠身體。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A2 曝光設定 → 感光度設定 → 最低快門速度</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="6">第 06 章 ISO 感光度</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rBlurMove" tabindex="-1" role="region" hidden>
+<h4>只有會動的糊 = 快門不夠快</h4>
+<div class="row"><span class="k">診斷</span><div class="v">背景清楚代表相機沒晃,是<strong>主體自己在動</strong>的時間被記錄下來了。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v"><strong>最低快門速度</strong>改 <strong>1/250 ～ 1/500 秒</strong>。<strong>防手震對這種糊完全沒用</strong>——它只能修正相機的晃動,修不了被拍的人在走路。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A2 曝光設定 → 感光度設定 → 最低快門速度</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="5">第 05 章 快門:門開多久</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rBlurFocus" tabindex="-1" role="region" hidden>
+<h4>主體糊、後面清楚 = 對焦對到後面去了</h4>
+<div class="row"><span class="k">診斷</span><div class="v">相機自己挑的對焦點不是你想要的那個。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">改用<strong>選擇 AF</strong> 自己指定對焦點 <span class="src s-man">說明書 p.61</span>;如果你在用快拍,檢查快拍對焦距離是不是設太遠。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A1 對焦設定 → 自動對焦區域</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="10">第 10 章 對焦:讓它清楚</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rBlurSnap" tabindex="-1" role="region" hidden>
+<h4>用了快拍卻糊 = 人不在快拍距離的範圍內</h4>
+<div class="row"><span class="k">診斷</span><div class="v">快拍是「先把焦點固定在某個距離」,人站在那個範圍外就是糊的。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">把光圈<strong>縮到 F8</strong> 讓景深變深,範圍就變寬;或直接改快拍對焦距離去配合你實際站的位置。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A1 對焦設定 → 快拍對焦距離</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="11">第 11 章 快拍 Snap:GR 的靈魂</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rBlurMacro" tabindex="-1" role="region" hidden>
+<h4>近拍怎麼拍都糊 = 這麼近時景深極淺</h4>
+<div class="row"><span class="k">診斷</span><div class="v">微距距離下,清楚的範圍可能只有幾公釐,一點點前後移動就跑掉。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">光圈縮到 <strong>F5.6 ～ F8</strong>,並改用<strong>精確 AF</strong> 對準你要的那一點 <span class="src s-man">說明書 p.58</span>。開啟 Shake Reduction,近距離會放大手震。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A1 對焦設定 → 自動對焦區域 → 精確 AF</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="4">第 04 章 光圈:洞的大小</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rExpWhite" tabindex="-1" role="region" hidden>
+<h4>白色拍成灰的 = 測光被騙了</h4>
+<div class="row"><span class="k">診斷</span><div class="v">相機測光的預設假設是「畫面平均起來該是中灰色」,所以看到整片白就以為太亮,自動拍暗。這不是故障。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">曝光補償 <strong>+0.7 ～ +1EV</strong>。拍完看直方圖再微調。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v">按機背<strong>曝光補償</strong>鍵,轉電子轉盤 <span class="src s-man">說明書 p.51</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="7">第 07 章 曝光補償・測光・直方圖</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rExpNight" tabindex="-1" role="region" hidden>
+<h4>夜景像白天 = 測光被騙了(反方向)</h4>
+<div class="row"><span class="k">診斷</span><div class="v">整片暗的畫面,相機以為曝光不足,於是把它拉亮成中灰——夜色的氣氛就沒了。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">曝光補償 <strong>−0.7 ～ −1.3EV</strong>。夜景本來就該是暗的。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v">按機背<strong>曝光補償</strong>鍵,轉電子轉盤 <span class="src s-man">說明書 p.51</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="7">第 07 章 曝光補償・測光・直方圖</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rExpSky" tabindex="-1" role="region" hidden>
+<h4>天空死白 = 亮部過曝</h4>
+<div class="row"><span class="k">診斷</span><div class="v">亮部一旦白掉,那塊就沒有資料了,事後救不回來。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">測光方式改<strong>高亮重點</strong> <span class="src s-man">說明書 p.65</span>;開啟<strong>高亮校正</strong> <span class="src s-man">p.95</span>;打開<strong>白點警告</strong>,拍之前就會看到哪裡要白掉 <span class="src s-man">p.139</span>。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A2 曝光設定 → 測光方式 → 高亮重點</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="7">第 07 章 曝光補償・測光・直方圖</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rExpBack" tabindex="-1" role="region" hidden>
+<h4>逆光人臉全黑 = 測光被亮背景拉走</h4>
+<div class="row"><span class="k">診斷</span><div class="v">相機測的是整個畫面,背後的強光把平均值拉高,臉就被壓暗了。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">曝光補償 <strong>+1EV</strong>;或把測光方式改成<strong>中央重點</strong>或<strong>重點</strong>,只讀臉那一塊的亮度。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A2 曝光設定 → 測光方式</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="7">第 07 章 曝光補償・測光・直方圖</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rExpSun" tabindex="-1" role="region" hidden>
+<h4>大太陽下過曝 = 撞到快門上限</h4>
+<div class="row"><span class="k">診斷</span><div class="v">F2.8 時快門最快只到 1/2500 <span class="src s-spec">官方規格</span>。光再多,相機也沒有更快的門可以關了。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">光圈縮到 <strong>F5.6 以上</strong>,或開啟 <strong>ND 濾光鏡</strong> 直接把進光量壓下來 <span class="src s-man">說明書 p.91</span>。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A3 拍攝設定 → ND 濾光鏡</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="4">第 04 章 光圈:洞的大小</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rExpShadow" tabindex="-1" role="region" hidden>
+<h4>暗部死黑 = 動態範圍不夠</h4>
+<div class="row"><span class="k">診斷</span><div class="v">同一個畫面裡最亮與最暗差太多,感光元件一次吃不下。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">開啟<strong>陰影校正</strong> <span class="src s-man">說明書 p.95</span>(設為「強」時雜點可能較明顯);或改拍 RAW,之後在電腦上把暗部拉回來。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A5 影像加工設定 → 動態範圍校正 → 陰影校正</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="6">第 06 章 ISO 感光度</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rWbYellow" tabindex="-1" role="region" hidden>
+<h4>室內偏黃 = 鎢絲燈色溫</h4>
+<div class="row"><span class="k">診斷</span><div class="v">黃燈的顏色本來就偏橘,自動白平衡沒有完全修正掉。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">想<strong>校正</strong>成白 → 白平衡改<strong>鎢絲燈</strong>。想<strong>保留</strong>那份暖 → 用<strong>自動白平衡(暖色優先)</strong> <span class="src s-man">說明書 p.73</span>。這是氣氛取捨,沒有標準答案。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">按下鍵(白平衡) → 選設定 → OK</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="12">第 12 章 白平衡:照片的冷暖</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rWbBlue" tabindex="-1" role="region" hidden>
+<h4>整體偏藍 = 在陰影或陰天下拍</h4>
+<div class="row"><span class="k">診斷</span><div class="v">陰影處的光其實來自藍色的天空,不是太陽直射。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">白平衡改<strong>陰影</strong>或<strong>陰天</strong>。「陰天」也可以單純拿來讓照片偏暖。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">按下鍵(白平衡) → 陰影 / 陰天 → OK</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="12">第 12 章 白平衡:照片的冷暖</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rWbSunset" tabindex="-1" role="region" hidden>
+<h4>夕陽不夠紅 = 白平衡把色偏「修正」掉了</h4>
+<div class="row"><span class="k">診斷</span><div class="v">自動白平衡的工作就是讓白色回到白色——它把夕陽的橘紅當成需要修正的色偏。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">改用 <strong>CTE</strong>。它是 Ricoh 特有的,作用是<strong>強調</strong>色偏而不是修正,會讓紅的更紅 <span class="src s-man">說明書 p.74</span>。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">按下鍵(白平衡) → CTE → OK</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="12">第 12 章 白平衡:照片的冷暖</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rWbUnstable" tabindex="-1" role="region" hidden>
+<h4>顏色時好時壞 = 自動白平衡每張判斷不同</h4>
+<div class="row"><span class="k">診斷</span><div class="v">同一個場合走幾步,畫面裡的顏色比例變了,自動白平衡就給出不一樣的答案。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v"><strong>固定用一種</strong>白平衡(依現場光源選日光/鎢絲燈等),整組照片的調性就會一致;或拍 RAW 之後統一套同一組數值。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">按下鍵(白平衡) → 選一個固定值 → OK</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="12">第 12 章 白平衡:照片的冷暖</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rWbRaw" tabindex="-1" role="region" hidden>
+<h4>設了黑白卻是彩色 = 影像控制不套用在 RAW 上</h4>
+<div class="row"><span class="k">診斷</span><div class="v">官方明確寫:「影像控制中的設定不適用於 RAW 影像」<span class="src s-man">說明書 p.94</span>。用 RAW+JPEG 拍時,效果只反映在 JPEG 上 <span class="src s-man">p.89</span>。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">看 <strong>JPEG</strong> 那個檔就對了;真的想在 RAW 上套用,用機內的 <strong>RAW 處理</strong> 補上色調 <span class="src s-man">說明書 p.109</span>。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">播放 → 選一張 RAW → RAW 處理</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="13">第 13 章 影像控制:14 種色調</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rIqNoise" tabindex="-1" role="region" hidden>
+<h4>顆粒多、暗部有雜色 = ISO 太高</h4>
+<div class="row"><span class="k">診斷</span><div class="v">ISO 是把訊號放大,背景的雜訊會一起被放大。官方也寫了:「使用高感光度拍攝的影像可能出現雜點」<span class="src s-man">p.67</span>。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">把<strong>感光度 AUTO 上限</strong>降下來(街拍建議 <strong>6400</strong>);或加大光圈到 F2.8 讓相機不必拉 ISO。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A2 曝光設定 → 感光度設定 → 感光度 AUTO 上限</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="6">第 06 章 ISO 感光度</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rIqPlastic" tabindex="-1" role="region" hidden>
+<h4>細節像塑膠 = 雜點抑制開太強</h4>
+<div class="row"><span class="k">診斷</span><div class="v">降噪是把雜點抹掉,抹過頭連真正的細節(頭髮、布料紋理)也一起抹平。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v"><strong>高感光度 NR</strong> 調低或設成「自動」 <span class="src s-man">說明書 p.71</span>。這是取捨,不是越強越好。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A5 影像加工設定 → 去除雜點 → 高感光度 NR</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="6">第 06 章 ISO 感光度</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rIqSoft" tabindex="-1" role="region" hidden>
+<h4>不夠銳利但沒糊 = 光圈縮太小產生繞射</h4>
+<div class="row"><span class="k">診斷</span><div class="v">光圈縮到很小時,光線通過小孔會擴散,整體銳利度反而下降。<span class="src s-gen">攝影通識</span></div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">不要一直用 F16,改用 <strong>F5.6 ～ F8</strong>。這一段通常是鏡頭最銳利的區間。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">Av 模式下轉前電子轉盤改光圈</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="4">第 04 章 光圈:洞的大小</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rIqVig" tabindex="-1" role="region" hidden>
+<h4>四角比中間暗 = 鏡頭特性</h4>
+<div class="row"><span class="k">診斷</span><div class="v">周邊光量下降是廣角鏡頭的物理特性,不是故障。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">開啟<strong>周邊光量校正</strong> <span class="src s-man">說明書 p.94</span>。(有些人反而喜歡這個效果,覺得畫面更集中——不修也完全可以。)</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A5 影像加工設定 → 周邊光量校正</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="13">第 13 章 影像控制:14 種色調</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rIqMoire" tabindex="-1" role="region" hidden>
+<h4>格紋出現彩色波紋 = 摩爾紋</h4>
+<div class="row"><span class="k">診斷</span><div class="v">被攝物的細密紋路與感光元件的畫素排列打架,產生假的彩色條紋。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">開啟<strong>低通濾光鏡模擬器</strong>(強/弱)<span class="src s-man">說明書 p.91</span>;已經拍下來的可以用<strong>色彩摩爾紋校正</strong>補救 <span class="src s-man">p.117</span>。注意:高速快門與閃光燈拍攝時可能無法獲得充分效果 <span class="src s-man">p.91</span>。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A3 拍攝設定 → 低通濾光鏡模擬器</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="13">第 13 章 影像控制:14 種色調</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rCompSmall" tabindex="-1" role="region" hidden>
+<h4>主體太小 = 你站太遠了</h4>
+<div class="row"><span class="k">診斷</span><div class="v">GR IV 是 28mm 定焦,<strong>不能變焦</strong>。<span class="src s-spec">官方規格</span></div></div>
+<div class="row"><span class="k">立刻做</span><div class="v"><strong>走近</strong>。這是唯一解,沒有第二個辦法。事後裁切會損失畫素。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v">用腳,不用選單。</div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="9">第 09 章 構圖與光線</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rCompMess" tabindex="-1" role="region" hidden>
+<h4>畫面很亂 = 元素太多,沒有主角</h4>
+<div class="row"><span class="k">診斷</span><div class="v">28mm 視野很大,很容易把不想要的東西一起拍進來。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">減少畫面中的元素;<strong>換個角度</strong>讓背景單純(蹲低拍天空、找一面素牆);再靠近一點。按快門前<strong>掃一次畫面四角</strong>。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v">打開<strong>格線</strong>當構圖輔助:<span class="path">MENU → D3 顯示自定義 → 拍攝資訊顯示設定 → 格線</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="9">第 09 章 構圖與光線</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rCompTilt" tabindex="-1" role="region" hidden>
+<h4>照片老是歪的</h4>
+<div class="row"><span class="k">診斷</span><div class="v">手持時很難靠感覺抓水平,尤其畫面裡沒有明顯的水平線時。</div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">打開<strong>電子水平儀</strong> <span class="src s-man">說明書 p.139</span>;再開<strong>自動水平補正</strong>,相機會自動修(SR 開啟時最大 1.0 度,SR 關閉時最大 1.5 度)<span class="src s-man">p.96</span>。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A6 拍攝輔助 → 自動水平補正 → 開啟</span></div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="7">第 07 章 曝光補償・測光・直方圖</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rCompFace" tabindex="-1" role="region" hidden>
+<h4>人臉被拉長 = 廣角邊緣變形</h4>
+<div class="row"><span class="k">診斷</span><div class="v">廣角鏡頭在畫面邊緣一定會有拉伸,越靠角落越明顯。這是光學特性。<span class="src s-gen">攝影通識</span></div></div>
+<div class="row"><span class="k">立刻做</span><div class="v">把人<strong>往畫面中間放</strong>。這是構圖問題,沒有選單可以修。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v">重新構圖,不用選單。</div></div>
+<div class="row"><span class="k">想懂為什麼</span><div class="v"><button class="go" type="button" data-dx-ch="9">第 09 章 構圖與光線</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rLiveDay" tabindex="-1" role="region" hidden>
+<h4>白天街拍:起手設定</h4>
+<div class="row"><span class="k">立刻做</span><div class="v">曝光模式 <strong>Av 光圈優先</strong> / 光圈 <strong>F8</strong> / 對焦<strong>快拍 2.5m</strong> / 完全按下快拍<strong>開啟</strong> / ISO <strong>AUTO 上限 6400</strong> / 最低快門速度 <strong>1/250</strong> / 測光<strong>多區</strong> / 影像控制<strong>正片</strong>。</div></div>
+<div class="row"><span class="k">為什麼</span><div class="v">F8 的景深夠深,配上快拍就是「舉起來就拍到」,零對焦延遲。1/250 讓走動的路人不會糊。</div></div>
+<div class="row"><span class="k">出處</span><div class="v"><span class="src s-mine">本站建議</span> 這是起始值,不是官方規定。選項名稱與位置依官方說明書。</div></div>
+<div class="row"><span class="k">完整版</span><div class="v"><button class="go" type="button" data-dx-ch="20">第 20 章 情境速查:照抄就能拍</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rLiveNight" tabindex="-1" role="region" hidden>
+<h4>夜間 / 低光:起手設定</h4>
+<div class="row"><span class="k">立刻做</span><div class="v">光圈 <strong>F2.8</strong> / 對焦<strong>選擇 AF</strong>(暗處快拍容易失手)/ ISO <strong>AUTO 上限 12800～25600</strong> / 最低快門速度 <strong>1/60</strong> / 測光<strong>高亮重點</strong> / 曝光補償 <strong>−0.7 ～ −1.3EV</strong> / <strong>Shake Reduction 開啟</strong>。</div></div>
+<div class="row"><span class="k">為什麼</span><div class="v">高亮重點讓霓虹燈不會白掉;負補償保住夜的氣氛。找牆壁、欄杆、地面靠著拍,比任何防手震都有效。</div></div>
+<div class="row"><span class="k">出處</span><div class="v"><span class="src s-mine">本站建議</span> 起始值。測光方式依 <span class="src s-man">說明書 p.65</span>。</div></div>
+<div class="row"><span class="k">完整版</span><div class="v"><button class="go" type="button" data-dx-ch="20">第 20 章 情境速查:照抄就能拍</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rLiveIndoor" tabindex="-1" role="region" hidden>
+<h4>室內 / 陰天:起手設定</h4>
+<div class="row"><span class="k">立刻做</span><div class="v">光圈 <strong>F2.8 ～ F4</strong> / ISO <strong>AUTO 上限 6400</strong> / 最低快門速度 <strong>靜物 1/60、有人在動 1/250</strong> / 白平衡<strong>自動白平衡(暖色優先)</strong> / 測光<strong>多區</strong>。</div></div>
+<div class="row"><span class="k">為什麼</span><div class="v">暖色優先會保留室內燈光的暖調,不會把氣氛校正掉 <span class="src s-man">說明書 p.73</span>。</div></div>
+<div class="row"><span class="k">出處</span><div class="v"><span class="src s-mine">本站建議</span> 起始值。</div></div>
+<div class="row"><span class="k">完整版</span><div class="v"><button class="go" type="button" data-dx-ch="20">第 20 章 情境速查:照抄就能拍</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rLiveMacro" tabindex="-1" role="region" hidden>
+<h4>微距 / 食物與小東西:起手設定</h4>
+<div class="row"><span class="k">立刻做</span><div class="v"><strong>微距模式開啟</strong>(按上鍵,對焦 6～15cm)/ 光圈 <strong>F5.6 ～ F8</strong> / 對焦<strong>精確 AF</strong> / <strong>Shake Reduction 開啟</strong>。</div></div>
+<div class="row"><span class="k">為什麼</span><div class="v">這麼近時景深極淺,要縮光圈換深度。近距離也會放大手震。</div></div>
+<div class="row"><span class="k">注意</span><div class="v">微距模式下<strong>無法使用完全按下快拍</strong> <span class="src s-man">說明書 p.64</span>。</div></div>
+<div class="row"><span class="k">完整版</span><div class="v"><button class="go" type="button" data-dx-ch="20">第 20 章 情境速查:照抄就能拍</button></div></div>
+</div>
+
+<div class="dxr" data-dx-card="rLiveLong" tabindex="-1" role="region" hidden>
+<h4>長曝光(車軌、流水):起手設定</h4>
+<div class="row"><span class="k">立刻做</span><div class="v"><strong>三腳架必備</strong> / 曝光模式 <strong>M 手動</strong> / ISO <strong>固定 100</strong>(才能用 B/T/BT)/ 光圈 <strong>F8 ～ F16</strong> / 快門用 <strong>T 或 BT</strong> / 自拍 <strong>2 秒</strong>(避免按快門的震動)/ 低速快門 NR <strong>自動或開啟</strong>。</div></div>
+<div class="row"><span class="k">白天太亮時</span><div class="v">開啟 <strong>ND 濾光鏡</strong> <span class="src s-man">說明書 p.91</span>,否則長曝一定過曝。</div></div>
+<div class="row"><span class="k">出處</span><div class="v"><span class="src s-mine">本站建議</span> 起始值。</div></div>
+<div class="row"><span class="k">完整版</span><div class="v"><button class="go" type="button" data-dx-ch="20">第 20 章 情境速查:照抄就能拍</button></div></div>
+</div>
+
+</div>
+
+<!-- ===== 模組 B:濾鏡風格選擇器 ===== -->
+<h3>B. 從想要的感覺挑濾鏡</h3>
+<p>GR IV 的「影像控制」就是機內濾鏡,選好之後拍出來的 JPEG 直接是那個味道,不用後製 <span class="src s-man">說明書 p.92</span>。下面不從 14 個名字裡挑,而是<strong>從你想要的感覺反查</strong>。</p>
+
+<div class="dx" id="dxB">
+
+<div class="dxq" data-dx-step="fxRoot">
+  <span class="q">你想要什麼感覺</span>
+  <div class="dxopts">
+    <button class="dxo" type="button" data-dx-go="fxClean">真實乾淨<small>什麼都不加</small></button>
+    <button class="dxo" type="button" data-dx-go="fxVivid">濃郁鮮豔<small>晴天、風景、藍天</small></button>
+    <button class="dxo" type="button" data-dx-go="fxFilm">日系淡雅<small>低飽和、柔和</small></button>
+    <button class="dxo" type="button" data-dx-go="fxBwHard">黑白硬派<small>街拍、粗顆粒</small></button>
+    <button class="dxo" type="button" data-dx-go="fxBwSoft">黑白柔和<small>人像、靜物</small></button>
+    <button class="dxo" type="button" data-dx-go="fxCine">電影感</button>
+    <button class="dxo" type="button" data-dx-go="fxOld">舊照片</button>
+    <button class="dxo" type="button" data-dx-go="fxWeird">想玩點怪的</button>
+    <button class="dxo" type="button" data-dx-go="fxHdr">繪畫感</button>
+  </div>
+</div>
+
+<div class="dxr" data-dx-card="fxClean" tabindex="-1" role="region" hidden>
+<h4>真實乾淨 → 標準</h4>
+<div class="row"><span class="k">官方說明</span><div class="v">標準畫質 <span class="src s-man">說明書 p.92</span></div></div>
+<div class="row"><span class="k">建議參數</span><div class="v">不動。這是基準點,先用它拍一陣子,你才知道其他色調到底改了什麼。<span class="src s-mine">本站建議</span></div></div>
+<div class="row"><span class="k">適合</span><div class="v">要記錄、要後製、或不確定的時候。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A5 影像加工設定 → 影像控制 → 標準</span></div></div>
+</div>
+
+<div class="dxr" data-dx-card="fxVivid" tabindex="-1" role="region" hidden>
+<h4>濃郁鮮豔 → 正片(或鮮艷)</h4>
+<div class="row"><span class="k">官方說明</span><div class="v"><strong>正片</strong>:拍攝如使用正片拍攝的高飽和度影像。<strong>鮮艷</strong>:拍攝清晰醒目、色調鮮明的影像 <span class="src s-man">說明書 p.92</span></div></div>
+<div class="row"><span class="k">建議參數</span><div class="v">先用<strong>正片</strong>不動參數。想再重一點,按 Fn 進去把<strong>對比度 +1</strong>。<span class="src s-mine">本站建議</span></div></div>
+<div class="row"><span class="k">適合</span><div class="v">晴天、藍天、風景、招牌顏色多的街景。這是 GR 的招牌色。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A5 影像加工設定 → 影像控制 → 正片</span></div></div>
+</div>
+
+<div class="dxr" data-dx-card="fxFilm" tabindex="-1" role="region" hidden>
+<h4>日系淡雅 → 底片</h4>
+<div class="row"><span class="k">官方說明</span><div class="v">拍攝如使用底片拍攝的影像 <span class="src s-man">說明書 p.92</span></div></div>
+<div class="row"><span class="k">建議參數</span><div class="v">按 Fn 進去把<strong>飽和度 −1、對比度 −1</strong>,想要顆粒感再把<strong>粒紋感 +1</strong>。<span class="src s-mine">本站建議</span></div></div>
+<div class="row"><span class="k">適合</span><div class="v">陰天、室內、生活隨拍。光線很硬的大晴天用這個會顯得灰。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A5 影像加工設定 → 影像控制 → 底片</span></div></div>
+</div>
+
+<div class="dxr" data-dx-card="fxBwHard" tabindex="-1" role="region" hidden>
+<h4>黑白硬派 → 高對比度黑白</h4>
+<div class="row"><span class="k">官方說明</span><div class="v">拍攝突出對比度的黑白影像。拍攝具有粗糙感的影像,如在膠片照相機中使用超感光度膠片 <span class="src s-man">說明書 p.92</span></div></div>
+<div class="row"><span class="k">建議參數</span><div class="v">按 Fn 進去把<strong>粒紋感 +2</strong>。黑白專用的<strong>濾光鏡效果</strong>可以讓天空變深,值得試。<span class="src s-mine">本站建議</span></div></div>
+<div class="row"><span class="k">適合</span><div class="v">街拍、強烈光影、陰影很重的場景。這是 GR 最有名的黑白。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A5 影像加工設定 → 影像控制 → 高對比度黑白</span></div></div>
+</div>
+
+<div class="dxr" data-dx-card="fxBwSoft" tabindex="-1" role="region" hidden>
+<h4>黑白柔和 → 軟單色</h4>
+<div class="row"><span class="k">官方說明</span><div class="v">拍攝給人柔和印象的黑白影像(影片模式無法選)<span class="src s-man">說明書 p.92</span></div></div>
+<div class="row"><span class="k">建議參數</span><div class="v">不動。想更硬一點就改用<strong>硬單色</strong>(給人硬朗印象),想最中性就用<strong>單色</strong>。<span class="src s-mine">本站建議</span></div></div>
+<div class="row"><span class="k">適合</span><div class="v">人像、靜物、光線柔和的室內。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A5 影像加工設定 → 影像控制 → 軟單色</span></div></div>
+</div>
+
+<div class="dxr" data-dx-card="fxCine" tabindex="-1" role="region" hidden>
+<h4>電影感 → 電影(黃色) / 電影(綠色)</h4>
+<div class="row"><span class="k">官方說明</span><div class="v"><strong>電影(黃色)</strong>:拍攝帶黃色調的電影感影像。<strong>電影(綠色)</strong>:拍攝陰影側帶綠色調的電影感影像 <span class="src s-man">說明書 p.92</span></div></div>
+<div class="row"><span class="k">建議參數</span><div class="v">兩個都拍一張再決定——黃色版偏暖偏懷舊,綠色版偏冷偏疏離,差異在陰影裡最明顯。<span class="src s-mine">本站建議</span></div></div>
+<div class="row"><span class="k">適合</span><div class="v">夜晚街景、有燈光的室內、想要敘事感的畫面。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A5 影像加工設定 → 影像控制 → 電影(黃色)</span></div></div>
+</div>
+
+<div class="dxr" data-dx-card="fxOld" tabindex="-1" role="region" hidden>
+<h4>舊照片 → 懷舊</h4>
+<div class="row"><span class="k">官方說明</span><div class="v">拍攝仿若舊照片的影像 <span class="src s-man">說明書 p.92</span></div></div>
+<div class="row"><span class="k">建議參數</span><div class="v">不動就很到位。想更舊可以加<strong>粒紋感</strong>。<span class="src s-mine">本站建議</span></div></div>
+<div class="row"><span class="k">適合</span><div class="v">老街、舊建築、家庭紀錄。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A5 影像加工設定 → 影像控制 → 懷舊</span></div></div>
+</div>
+
+<div class="dxr" data-dx-card="fxWeird" tabindex="-1" role="region" hidden>
+<h4>想玩點怪的 → 正負逆沖 / 跳漂白</h4>
+<div class="row"><span class="k">官方說明</span><div class="v"><strong>正負逆沖</strong>:更改色彩及對比度,拍攝如進行了交叉沖印的影像。<strong>跳漂白</strong>:拍攝降低飽和度、突出對比度的影像 <span class="src s-man">說明書 p.92</span></div></div>
+<div class="row"><span class="k">建議參數</span><div class="v">這兩個個性很強,不建議當日常設定。挑特定場景玩就好。<span class="src s-mine">本站建議</span></div></div>
+<div class="row"><span class="k">適合</span><div class="v">跳漂白適合冷硬的都市場景;正負逆沖適合想要不真實感的實驗。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A5 影像加工設定 → 影像控制 → 跳漂白</span></div></div>
+</div>
+
+<div class="dxr" data-dx-card="fxHdr" tabindex="-1" role="region" hidden>
+<h4>繪畫感 → HDR 色調</h4>
+<div class="row"><span class="k">官方說明</span><div class="v">強調細膩的對比度,使其具有繪畫感(影片模式無法選)<span class="src s-man">說明書 p.92</span></div></div>
+<div class="row"><span class="k">建議參數</span><div class="v">可調<strong>HDR 色調效果</strong>的強度,先從低的試。<span class="src s-mine">本站建議</span></div></div>
+<div class="row"><span class="k">適合</span><div class="v">紋理豐富的題材:老牆、樹皮、機械。人像用這個通常不好看。</div></div>
+<div class="row"><span class="k">選單路徑</span><div class="v"><span class="path">MENU → A5 影像加工設定 → 影像控制 → HDR 色調</span></div></div>
+</div>
+
+</div>
+
+<h4>方向感示意</h4>
+<div class="fx">
+<div class="fxc"><svg aria-hidden="true" viewBox="0 0 120 84"><defs><linearGradient id="fxs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7EC8E8"/><stop offset="1" stop-color="#CFE7F2"/></linearGradient></defs><rect width="120" height="84" fill="url(#fxs)"/><rect y="52" width="120" height="32" fill="#B9A98C"/><rect x="14" y="26" width="26" height="26" fill="#C9553F"/><rect x="46" y="16" width="22" height="36" fill="#E8E2D4"/><rect x="74" y="32" width="30" height="20" fill="#3F6B52"/><circle cx="98" cy="18" r="8" fill="#F2D06B"/></svg><b>標準</b></div>
+<div class="fxc"><svg aria-hidden="true" viewBox="0 0 120 84" style="filter:saturate(1.6) contrast(1.12)"><rect width="120" height="84" fill="url(#fxs)"/><rect y="52" width="120" height="32" fill="#B9A98C"/><rect x="14" y="26" width="26" height="26" fill="#C9553F"/><rect x="46" y="16" width="22" height="36" fill="#E8E2D4"/><rect x="74" y="32" width="30" height="20" fill="#3F6B52"/><circle cx="98" cy="18" r="8" fill="#F2D06B"/></svg><b>正片方向</b></div>
+<div class="fxc"><svg aria-hidden="true" viewBox="0 0 120 84" style="filter:saturate(.72) contrast(.9) brightness(1.06)"><rect width="120" height="84" fill="url(#fxs)"/><rect y="52" width="120" height="32" fill="#B9A98C"/><rect x="14" y="26" width="26" height="26" fill="#C9553F"/><rect x="46" y="16" width="22" height="36" fill="#E8E2D4"/><rect x="74" y="32" width="30" height="20" fill="#3F6B52"/><circle cx="98" cy="18" r="8" fill="#F2D06B"/></svg><b>底片方向</b></div>
+<div class="fxc"><svg aria-hidden="true" viewBox="0 0 120 84" style="filter:grayscale(1) contrast(1.5)"><rect width="120" height="84" fill="url(#fxs)"/><rect y="52" width="120" height="32" fill="#B9A98C"/><rect x="14" y="26" width="26" height="26" fill="#C9553F"/><rect x="46" y="16" width="22" height="36" fill="#E8E2D4"/><rect x="74" y="32" width="30" height="20" fill="#3F6B52"/><circle cx="98" cy="18" r="8" fill="#F2D06B"/></svg><b>高對比黑白方向</b></div>
+<div class="fxc"><svg aria-hidden="true" viewBox="0 0 120 84" style="filter:grayscale(1) contrast(.85) brightness(1.05)"><rect width="120" height="84" fill="url(#fxs)"/><rect y="52" width="120" height="32" fill="#B9A98C"/><rect x="14" y="26" width="26" height="26" fill="#C9553F"/><rect x="46" y="16" width="22" height="36" fill="#E8E2D4"/><rect x="74" y="32" width="30" height="20" fill="#3F6B52"/><circle cx="98" cy="18" r="8" fill="#F2D06B"/></svg><b>軟單色方向</b></div>
+<div class="fxc"><svg aria-hidden="true" viewBox="0 0 120 84" style="filter:sepia(.55) saturate(.85) contrast(1.05)"><rect width="120" height="84" fill="url(#fxs)"/><rect y="52" width="120" height="32" fill="#B9A98C"/><rect x="14" y="26" width="26" height="26" fill="#C9553F"/><rect x="46" y="16" width="22" height="36" fill="#E8E2D4"/><rect x="74" y="32" width="30" height="20" fill="#3F6B52"/><circle cx="98" cy="18" r="8" fill="#F2D06B"/></svg><b>懷舊方向</b></div>
+</div>
+<p class="fxnote"><strong>這六格是用 CSS 濾鏡做的模擬示意,不是實際成像。</strong>它只幫你判斷「大概往哪個方向走」,實際的 JPEG 輸出請以機身拍出來的為準。這是本站唯一一處非官方、非實拍的視覺內容。</p>
+
+<div class="box warn">
+<span class="lbl">選任何色調之前先記住這一條</span>
+<p style="margin-bottom:0">官方明確寫:「影像控制中的設定<strong>不適用於 RAW 影像</strong>」<span class="src s-man">說明書 p.94</span>。用 RAW+JPEG 拍時,效果只反映在 JPEG 上 <span class="src s-man">p.89</span>。所以你設了黑白,電腦打開 RAW 還是彩色的——這是正常的。</p>
+</div>
+
+<div class="box tip">
+<p style="margin-bottom:0"><span class="src s-mine">本站建議</span> 選項太多反而不會拍。新手先固定用兩個就好:<strong>彩色用正片,黑白用高對比度黑白</strong>。等你看膩了再回來試其他 12 種。調出喜歡的參數後,存成<strong>自定義 1～3</strong> 就不用每次重設 <span class="src s-man">說明書 p.92–93</span>。</p>
+</div>
+
+<div class="drill"><span class="lbl">練習</span>
+<ol>
+<li>翻出你最近拍壞的 5 張,每一張都用上面的 A 模組跑一次,把答案卡指的那個參數記下來。</li>
+<li>找出重複出現最多次的那個參數——那就是你現在最該改的設定。改掉它。</li>
+<li>用 B 模組挑一個你從沒用過的色調,帶著它出門拍一整天,只用那一個。</li>
+</ol></div>
+</div></section>
+
 </main>
 
 <script>
@@ -3278,6 +3818,10 @@ RICOH IMAGING 官網 GR IV 規格頁,規格更新日期 2025 年 12 月 17 日�
       }
       lastGroup = g;
     }
+    /* OSD 右側的「NN / 總數」由章節數推算,增刪章節不必手改 */
+    var no = s.querySelector('.osd .no');
+    if(no){ no.textContent = String(i).padStart(2,'0')+' / '+(secs.length-1); }
+
     var li = document.createElement('li');
     var b  = document.createElement('button');
     b.type='button';
@@ -3342,6 +3886,74 @@ RICOH IMAGING 官網 GR IV 規格頁,規格更新日期 2025 年 12 月 17 日�
 
 
   /* ============================================================
+     互動診斷器
+     問題與答案卡全部是靜態 DOM，這裡只切換顯示。
+     這樣搜尋索引掃得到、列印印得出來、沒有 JS 也不會是空白頁。
+     ============================================================ */
+  var dxWraps = Array.prototype.slice.call(document.querySelectorAll('.dx'));
+
+  /* 展開某張答案卡並把它所屬的流程還原（搜尋跳轉會用到） */
+  function dxReveal(card){
+    var wrap = card.closest('.dx');
+    if(!wrap){ return; }
+    Array.prototype.forEach.call(wrap.querySelectorAll('.dxr'), function(r){
+      r.hidden = (r !== card);
+    });
+    card.hidden = false;
+  }
+
+  dxWraps.forEach(function(wrap){
+    var steps = Array.prototype.slice.call(wrap.querySelectorAll('[data-dx-step]'));
+    var cards = Array.prototype.slice.call(wrap.querySelectorAll('[data-dx-card]'));
+    var first = steps.length ? steps[0].getAttribute('data-dx-step') : null;
+
+    function goto(key){
+      var step = null, card = null;
+      steps.forEach(function(s){
+        var on = s.getAttribute('data-dx-step') === key;
+        s.hidden = !on;
+        if(on){ step = s; }
+      });
+      cards.forEach(function(c){
+        var on = c.getAttribute('data-dx-card') === key;
+        c.hidden = !on;
+        if(on){ card = c; }
+      });
+
+      /* 選到答案卡時，讓產生它的那一層問題留在畫面上，方便換一個選項再看 */
+      if(card){
+        var owner = wrap.querySelector('[data-dx-go="'+key+'"]');
+        var ownerStep = owner ? owner.closest('[data-dx-step]') : null;
+        if(ownerStep){ ownerStep.hidden = false; step = ownerStep; }
+      }
+
+      /* 標示目前選中的選項 */
+      Array.prototype.forEach.call(wrap.querySelectorAll('.dxo'), function(b){
+        b.setAttribute('aria-pressed', b.getAttribute('data-dx-go') === key ? 'true' : 'false');
+      });
+
+      if(card){ card.focus(); }
+      else if(step){
+        var h = step.querySelector('.dxo');
+        if(h){ h.focus(); }
+      }
+    }
+
+    /* 初始狀態：第一層問題展開，其餘全收 */
+    if(first){
+      steps.forEach(function(s,k){ s.hidden = (k !== 0); });
+      cards.forEach(function(c){ c.hidden = true; });
+    }
+
+    wrap.addEventListener('click', function(e){
+      var t = e.target.closest('[data-dx-go]');
+      if(t){ goto(t.getAttribute('data-dx-go')); return; }
+      var ch = e.target.closest('[data-dx-ch]');
+      if(ch){ show(+ch.getAttribute('data-dx-ch'), true); }
+    });
+  });
+
+  /* ============================================================
      全域快速搜尋（三層）
      L1 字面子字串 → L2 同義詞別名 → L3 症狀直達
      索引在載入時從 DOM 即時建立，改內容會自動同步
@@ -3377,6 +3989,11 @@ RICOH IMAGING 官網 GR IV 規格頁,規格更新日期 2025 年 12 月 17 日�
     '重來':['重設'], '恢復原廠':['重設'], '格式化':['格式化'],
     '記憶卡':['記憶卡','microSD','內部記憶體'], '容量':['記憶卡','內部記憶體'],
     '按鍵':['Fn 按鈕','ADJ','自定義'], '快捷':['Fn 按鈕','ADJ 模式'],
+    '該調什麼':['互動診斷','決策地圖'], '怎麼調':['互動診斷','決策地圖'],
+    '調哪個':['互動診斷','決策地圖'], '診斷':['互動診斷','拍壞了'],
+    '風格':['影像控制','互動診斷'], '味道':['影像控制','底片','正片'],
+    '挑濾鏡':['影像控制','互動診斷'], '電影感':['電影(黃色)','電影(綠色)'],
+    '日系':['底片','飽和度'], '舊照片':['懷舊'], '繪畫感':['HDR 色調'],
     '保存設定':['USER 模式','記憶'], '預設值':['初始設定','重設'],
     '修圖':['RAW 處理','影像編輯','等級調整'], '裁切':['剪裁','裁切'],
     '韌體':['韌體','GR WORLD'], '選片':['選片','歸檔'],
@@ -3386,19 +4003,21 @@ RICOH IMAGING 官網 GR IV 規格頁,規格更新日期 2025 年 12 月 17 日�
 
   /* L3：症狀 → 直接把某章推到最前面 */
   var SYMPTOM = [
-    { q:['太暗','很暗','不夠亮','拍暗','暗暗的'], to:['拍壞了','曝光補償'], why:'亮度問題' },
-    { q:['太亮','過曝','死白','白掉','曝光過度'], to:['拍壞了','曝光補償'], why:'亮度問題' },
-    { q:['糊','模糊','不清楚','糊掉','模糊了'], to:['拍壞了','快門'], why:'失焦或手震' },
-    { q:['顏色不對','顏色怪','色偏','偏黃','偏藍'], to:['拍壞了','白平衡'], why:'白平衡' },
-    { q:['雜訊','顆粒','雜點','很髒'], to:['拍壞了','ISO'], why:'感光度過高' },
-    { q:['對不到焦','對焦失敗','對焦跑掉'], to:['拍壞了','對焦'], why:'對焦問題' },
-    { q:['不知道怎麼設','怎麼設','怎麼拍','新手','初學者','入門'], to:['出片配方','開始這裡'], why:'從這裡開始' },
+    { q:['太暗','很暗','不夠亮','拍暗','暗暗的'], to:['互動診斷','拍壞了','曝光補償'], why:'問我兩題' },
+    { q:['太亮','過曝','死白','白掉','曝光過度'], to:['互動診斷','拍壞了','曝光補償'], why:'問我兩題' },
+    { q:['糊','模糊','不清楚','糊掉','模糊了'], to:['互動診斷','拍壞了','快門'], why:'問我兩題' },
+    { q:['顏色不對','顏色怪','色偏','偏黃','偏藍'], to:['互動診斷','拍壞了','白平衡'], why:'問我兩題' },
+    { q:['雜訊','顆粒','雜點','很髒'], to:['互動診斷','拍壞了','ISO'], why:'問我兩題' },
+    { q:['對不到焦','對焦失敗','對焦跑掉'], to:['互動診斷','拍壞了','對焦'], why:'問我兩題' },
+    { q:['該調什麼','怎麼調','調哪個','要調什麼','調參數','哪個設定'], to:['互動診斷','該調哪一個'], why:'互動診斷' },
+    { q:['濾鏡','風格','色調','味道','什麼感覺'], to:['互動診斷','影像控制'], why:'挑濾鏡' },
+    { q:['不知道怎麼設','怎麼設','怎麼拍','新手','初學者','入門'], to:['出片配方','開始這裡','互動診斷'], why:'從這裡開始' },
     { q:['開不了機','錯誤訊息','故障','沒反應','壞了'], to:['疑難排解'], why:'相機故障' },
     { q:['電池很快沒電','耗電','省電'], to:['疑難排解','第一次開機'], why:'電力' },
     { q:['選單在哪','找不到設定','選單'], to:['完整選單速查表'], why:'選單地圖' }
   ];
 
-  var HINTS = ['背景模糊','照片太暗','快拍','新手怎麼設','黑白','星軌','p.58'];
+  var HINTS = ['該調什麼','照片太暗','背景模糊','挑濾鏡','快拍','黑白','p.58'];
 
   /* ---------- 建立索引 ---------- */
   var IDX = [];
@@ -3582,7 +4201,11 @@ RICOH IMAGING 官網 GR IV 規格頁,規格更新日期 2025 年 12 月 17 日�
     show(i, true);
     setTimeout(function(){
       var m = markHits(secs[i], lastQ);
-      if (m) { m.scrollIntoView({ block:'center' }); }
+      if (!m) { return; }
+      /* 命中的字如果落在收合的答案卡裡，先把那張卡展開再捲過去 */
+      var card = m.closest('.dxr');
+      if (card) { dxReveal(card); }
+      m.scrollIntoView({ block:'center' });
     }, 40);
   }
   function openSk(){
