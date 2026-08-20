@@ -1,12 +1,13 @@
 /* RICOH GR IV 新手完全指南 — Service Worker
    改了 index.html 之後，把 VERSION 加一，使用者下次開啟就會拿到新版。 */
-const VERSION   = 'gr4-v2';
+const VERSION   = 'gr4-v3';
 const CORE      = VERSION + '-core';
 const RUNTIME   = VERSION + '-runtime';
 
 const CORE_FILES = [
   './',
   './index.html',
+  './caption.html',
   './manifest.webmanifest',
   './icon-192.png',
   './icon-512.png',
