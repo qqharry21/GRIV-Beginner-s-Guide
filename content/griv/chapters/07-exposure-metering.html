@@ -1,0 +1,112 @@
+<section data-t="曝光補償・測光・直方圖" data-g="攝影原理">
+<div class="osd"><span>P</span><span>F5.6</span><span>1/400</span><span>ISO 400</span><span class="hot">EV+0.7</span><span class="no">07 / 27</span></div>
+<div class="wrap">
+<h2 class="ch">曝光補償・測光・直方圖</h2>
+<p class="sub">相機的測光會被騙。這一章教你怎麼發現、怎麼修。</p>
+
+<h3>相機為什麼會把白色拍成灰色</h3>
+<p>相機測光的預設假設是:「整個畫面平均起來應該是中灰色」。所以——</p>
+<ul>
+<li>你拍<strong>雪地、白牆</strong>:相機以為太亮了 → 拍暗 → 白變灰</li>
+<li>你拍<strong>夜景、黑衣服</strong>:相機以為太暗了 → 拍亮 → 黑變灰、夜景變白天</li>
+</ul>
+<p>這不是故障,是測光原理造成的。修正方法就是<strong>曝光補償</strong>。<span class="src s-gen">攝影通識</span></p>
+
+<h3>曝光補償</h3>
+<p>用<strong>曝光補償</strong>告訴相機:「你算的太亮了/太暗了,請調整」。</p>
+<div class="tw"><table>
+<tr><th>項目</th><th>規格</th></tr>
+<tr><td>靜止影像</td><td><strong>±5EV</strong>,以 1/3 EV 為一階</td></tr>
+<tr><td>影片</td><td>±2EV,以 1/3 EV 為一階</td></tr>
+</table></div>
+<p><span class="src s-spec">官方規格</span><span class="src s-man">說明書 p.51</span></p>
+<p><strong>EV</strong> 是亮度的單位:<span class="m">+1EV</span> 大約是亮一倍,<span class="m">−1EV</span> 大約是暗一半 <span class="src s-gen">攝影通識</span>。</p>
+
+<div class="box tip">
+<span class="lbl">最常用的三個補償</span>
+<ul style="margin-bottom:0">
+<li>拍<strong>白色</strong>的東西(雪、白牆、白紙)→ <strong>+0.7 ～ +1EV</strong></li>
+<li>拍<strong>夜景</strong>想保留氣氛 → <strong>−0.7 ～ −1.3EV</strong></li>
+<li><strong>逆光</strong>人像,人臉太黑 → <strong>+1EV</strong></li>
+</ul>
+<p style="margin:8px 0 0"><span class="src s-mine">本站建議</span> 起始值,拍完看直方圖再微調。</p>
+</div>
+
+<div class="box warn">
+<p style="margin-bottom:0">在<strong>手動曝光模式且感光度設為固定值</strong>時,無法進行曝光補償 <span class="src s-man">說明書 p.52</span>。因為那時候三個參數全在你手上,沒有「補償」的對象。</p>
+</div>
+
+<h4>還有一個自動補償</h4>
+<span class="path">MENU → A2 曝光設定 → 自動曝光補償 → 開啟</span>
+<p>開啟後,在光圈優先或快門優先模式下<strong>無法獲得正確曝光時,相機會自動調整</strong> <span class="src s-man">說明書 p.52</span>。</p>
+
+<h3>測光方式:相機從哪裡讀亮度</h3>
+<span class="path">MENU → A2 曝光設定 → 測光方式</span>
+<div class="tw"><table>
+<tr><th>選項</th><th>官方說明</th><th>什麼時候用</th></tr>
+<tr><td><strong>多區</strong></td><td>分割拍攝範圍,綜合判斷</td><td>預設,九成場合<span class="src s-mine">建議</span></td></tr>
+<tr><td><strong>中央重點</strong></td><td>以中央為重點測光</td><td>主體在正中間</td></tr>
+<tr><td><strong>重點</strong></td><td>對狹小區域測光</td><td>主體很小、或只想測某一塊</td></tr>
+<tr><td><strong>高亮重點</strong></td><td>分割測光,突出明亮部份進行曝光</td><td>夜間霓虹、逆光、舞台<span class="src s-mine">建議</span></td></tr>
+</table></div>
+<p><span class="src s-man">說明書 p.65</span>。另外:偵測到臉部或眼部時,「多區」與「重點」會在臉部曝光 <span class="src s-man">p.65–66</span>。</p>
+
+<h3>直方圖:照片的亮度成績單</h3>
+<p><strong>直方圖</strong>是一張圖,橫軸從左到右代表「暗 → 亮」,縱軸代表「有多少像素落在那個亮度」。</p>
+<figure>
+<svg viewBox="0 0 640 200" role="img" aria-label="直方圖三種狀態">
+<rect width="640" height="200" fill="#fff"/>
+<g>
+<rect x="30" y="25" width="170" height="95" fill="#F4F4F1" stroke="#D6D6D1"/>
+<path d="M30 120 L40 118 L60 70 L85 42 L110 55 L140 100 L170 116 L200 120 Z" fill="#16191B" opacity="0.8"/>
+<rect x="235" y="25" width="170" height="95" fill="#F4F4F1" stroke="#D6D6D1"/>
+<path d="M235 120 L245 60 L258 32 L275 70 L300 108 L340 118 L405 120 Z" fill="#D9534A" opacity="0.8"/>
+<rect x="440" y="25" width="170" height="95" fill="#F4F4F1" stroke="#D6D6D1"/>
+<path d="M440 120 L500 119 L540 112 L570 70 L590 30 L603 32 L610 120 Z" fill="#D9534A" opacity="0.8"/>
+</g>
+<g font-family="Noto Sans TC" font-size="13" font-weight="700" fill="#16191B" text-anchor="middle">
+<text x="115" y="145">正常</text><text x="320" y="145">曝光不足</text><text x="525" y="145">曝光過度</text></g>
+<g font-family="Noto Sans TC" font-size="11.5" fill="#63676B" text-anchor="middle">
+<text x="115" y="167">山形集中在中間</text><text x="320" y="167">全擠在左邊,暗部死黑</text><text x="525" y="167">全擠在右邊,亮部死白</text></g>
+<g font-family="Noto Sans TC" font-size="10.5" fill="#63676B">
+<text x="30" y="188">暗</text><text x="186" y="188">亮</text><text x="235" y="188">暗</text><text x="391" y="188">亮</text><text x="440" y="188">暗</text><text x="596" y="188">亮</text></g>
+</svg>
+<figcaption>沒有「唯一正確」的直方圖,但貼死在最左或最右代表資料已經流失。<span class="src s-gen">攝影通識</span></figcaption>
+</figure>
+<div class="box warn">
+<p style="margin-bottom:0"><strong>過曝的亮部救不回來,曝光不足的暗部通常還有救。</strong> 所以不確定時,寧可稍暗一點。<span class="src s-gen">攝影通識</span></p>
+</div>
+
+<h4>把直方圖叫出來</h4>
+<span class="path">MENU → D3 顯示自定義 → 拍攝資訊顯示設定</span>
+<p>在裡面可以逐項開關這四個 <span class="src s-man">說明書 p.139</span>:</p>
+<div class="tw"><table>
+<tr><th>項目</th><th>官方說明</th></tr>
+<tr><td><strong>直方圖</strong></td><td>顯示直方圖</td></tr>
+<tr><td><strong>格線</strong></td><td>顯示格線(構圖輔助)</td></tr>
+<tr><td><strong>白點警告</strong></td><td>預計拍攝時會出現白點的部份以紅色閃爍</td></tr>
+<tr><td><strong>電子水平儀</strong></td><td>顯示確認照相機傾斜的指示器</td></tr>
+</table></div>
+<p><span class="src s-mine">本站建議</span>:新手把這四個全部打開。它們是訓練輪,熟了再關掉。</p>
+<p>重播時也能顯示直方圖等資訊,設定在同一頁的「重播資訊顯示設定」<span class="src s-man">p.140</span>。</p>
+
+<h4>格線與水平儀的樣式也能改</h4>
+<div class="tw"><table>
+<tr><th>設定</th><th>選項</th><th>位置</th></tr>
+<tr><td>格線種類</td><td>9 網格 / 16 網格</td><td>D3 顯示自定義</td></tr>
+<tr><td>電子水平儀類型</td><td>水平 + 前後 / 水平</td><td>D3 顯示自定義</td></tr>
+<tr><td>電子水平儀的設計</td><td>Type1 / Type2 / Type3</td><td>D3 顯示自定義</td></tr>
+</table></div>
+<p><span class="src s-man">說明書 p.34、p.141</span></p>
+
+<h3>拍歪了可以自動修正</h3>
+<span class="path">MENU → A6 拍攝輔助 → 自動水平補正 → 開啟</span>
+<p>相機會補正電子水平儀偵測到的水平傾斜。補正幅度:<strong>SR 開啟時最大 1.0 度,SR 關閉時最大 1.5 度</strong> <span class="src s-spec">官方規格</span><span class="src s-man">說明書 p.96</span>。</p>
+
+<div class="drill"><span class="lbl">練習 07</span>
+<ol>
+<li>把直方圖、格線、白點警告、電子水平儀四個全部打開。</li>
+<li>拍一面白牆:先 0EV,再 +1EV。比較兩張的直方圖形狀。</li>
+<li>晚上找一個有霓虹燈的地方,用「多區」和「高亮重點」各拍一張,看亮部有沒有白掉。</li>
+</ol></div>
+</div></section>

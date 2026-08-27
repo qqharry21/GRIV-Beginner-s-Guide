@@ -1,0 +1,19 @@
+{
+  "brand": "攝影基礎",
+  "h1": "基礎與構圖思維",
+  "subtitleHTML": "不分機型的共通原理:<br>曝光・構圖・攝影眼怎麼練",
+  "titleSuffix": "攝影基礎與構圖思維 — 攝影教學技巧指南",
+  "tool": null,
+  "files": [
+    "00-intro.html",
+    "01-exposure-triangle.html",
+    "02-aperture-shutter-iso.html",
+    "03-metering-histogram.html",
+    "04-focus-concepts.html",
+    "05-composition-basics.html",
+    "06-composition-advanced.html",
+    "07-light-and-color.html",
+    "08-photographers-eye.html",
+    "09-practice-plan.html"
+  ]
+}

@@ -1,0 +1,5 @@
+[
+  { "id": "fund", "label": "攝影基礎", "dir": "./content/fund" },
+  { "id": "griv", "label": "GR IV", "dir": "./content/griv" },
+  { "id": "pocket4pro", "label": "Pocket 4 Pro", "dir": "./content/pocket4pro" }
+]

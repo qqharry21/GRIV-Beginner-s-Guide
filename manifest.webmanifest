@@ -1,7 +1,7 @@
 {
-  "name": "RICOH GR IV 新手完全指南",
-  "short_name": "GR IV 指南",
-  "description": "RICOH GR IV 攝影入門完整指南，每項設定對照官方繁體中文操作說明書並標明頁碼。",
+  "name": "攝影教學技巧指南",
+  "short_name": "攝影指南",
+  "description": "攝影基礎、構圖思維與攝影眼的教學指南，並附 RICOH GR IV、DJI Osmo Pocket 4 Pro 等機身的完整操作章節。",
   "lang": "zh-Hant",
   "dir": "ltr",
   "start_url": "./",
