@@ -80,8 +80,9 @@ content/
   pocket4pro/                    ← 「Pocket 4 Pro」分頁
     manifest.json
     chapters/
-      00-overview.html
-      01-roadmap.html
+      00-what-is-it.html
+      01-body-and-gestures.html
+      ...
 ```
 
 ### `tabs.json` 長什麼樣子
