@@ -1,0 +1,111 @@
+<section data-t="拍壞了?診斷表" data-g="速查">
+<div class="osd"><span class="hot">DEBUG</span><span>症狀</span><span>原因</span><span>解法</span><span class="no">25 / 27</span></div>
+<div class="wrap">
+<h2 class="ch">拍壞了?診斷表</h2>
+<p class="sub">從「照片看起來怎樣」反推「哪個設定錯了」。這是第 28 章「疑難排解」的補充——那章講相機故障,這章講照片問題。</p>
+
+<div class="box tip">
+<p style="margin-bottom:0">這一章是<strong>完整的對照表</strong>,適合一次讀完或列印帶著。如果你只想快速解決手上這一張照片,最後一章「<strong>互動診斷:現在該調什麼</strong>」會用問答的方式直接帶你到答案。兩章的內容與出處相同,只是查法不同。</p>
+</div>
+
+<h3>照片糊掉</h3>
+<p>先分辨是哪一種糊,解法完全不同:</p>
+<figure>
+<svg viewBox="0 0 640 170" role="img" aria-label="三種糊掉的差異">
+<rect width="640" height="170" fill="#fff"/>
+<rect x="25" y="20" width="180" height="95" fill="#F0F0EC" stroke="#D6D6D1"/>
+<g opacity="0.5"><circle cx="100" cy="60" r="20" fill="#16191B"/><rect x="60" y="85" width="90" height="14" fill="#16191B"/></g>
+<g opacity="0.5"><circle cx="112" cy="66" r="20" fill="#16191B"/><rect x="72" y="91" width="90" height="14" fill="#16191B"/></g>
+<text x="115" y="136" text-anchor="middle" font-family="Noto Sans TC" font-size="13" font-weight="700" fill="#16191B">整張都糊</text>
+<text x="115" y="156" text-anchor="middle" font-family="Noto Sans TC" font-size="11" fill="#63676B">= 手震</text>
+
+<rect x="230" y="20" width="180" height="95" fill="#F0F0EC" stroke="#D6D6D1"/>
+<circle cx="270" cy="60" r="18" fill="#16191B"/>
+<g opacity="0.4"><rect x="300" y="46" width="90" height="30" rx="15" fill="#16191B"/></g>
+<text x="320" y="136" text-anchor="middle" font-family="Noto Sans TC" font-size="13" font-weight="700" fill="#16191B">只有動的東西糊</text>
+<text x="320" y="156" text-anchor="middle" font-family="Noto Sans TC" font-size="11" fill="#63676B">= 快門太慢</text>
+
+<rect x="435" y="20" width="180" height="95" fill="#F0F0EC" stroke="#D6D6D1"/>
+<circle cx="490" cy="60" r="18" fill="#16191B" opacity="0.35"/>
+<circle cx="560" cy="70" r="16" fill="#16191B"/>
+<text x="525" y="136" text-anchor="middle" font-family="Noto Sans TC" font-size="13" font-weight="700" fill="#16191B">主體糊、背景清楚</text>
+<text x="525" y="156" text-anchor="middle" font-family="Noto Sans TC" font-size="11" fill="#63676B">= 對焦跑掉</text>
+</svg>
+<figcaption>放大照片看:糊的是「全部」「只有會動的」還是「該清楚的那個」?三種原因完全不同。<span class="src s-gen">攝影通識</span></figcaption>
+</figure>
+<div class="tw"><table>
+<tr><th>症狀</th><th>原因</th><th>怎麼修</th></tr>
+<tr><td><strong>整張都糊</strong>,連牆壁也糊</td><td>手震,快門太慢</td><td>提高最低快門速度到 1/250;確認 Shake Reduction 開啟<span class="src s-man">p.96</span>;手肘夾緊靠身體</td></tr>
+<tr><td><strong>只有走動的人糊</strong>,背景清楚</td><td>快門不夠快,擋不住主體移動</td><td>最低快門速度改 1/250～1/500。<strong>防手震對這種糊沒用</strong></td></tr>
+<tr><td><strong>主體糊、後面的東西清楚</strong></td><td>對焦對到後面去了</td><td>改用選擇 AF 指定對焦點<span class="src s-man">p.61</span>;或檢查快拍距離是不是設太遠</td></tr>
+<tr><td>用了快拍卻糊</td><td>人站的位置不在快拍距離的範圍內</td><td>縮光圈到 F8 讓景深變深,或改對焦距離</td></tr>
+<tr><td>微距時怎麼拍都糊</td><td>這麼近時景深極淺</td><td>光圈縮到 F5.6～F8,用精確 AF<span class="src s-man">p.58</span></td></tr>
+</table></div>
+
+<h3>亮度不對</h3>
+<div class="tw"><table>
+<tr><th>症狀</th><th>原因</th><th>怎麼修</th></tr>
+<tr><td>雪地/白牆拍出來灰灰的</td><td>測光被騙,相機以為太亮</td><td>曝光補償 <strong>+0.7～+1EV</strong></td></tr>
+<tr><td>夜景拍得像白天,沒氣氛</td><td>測光被騙,相機以為太暗</td><td>曝光補償 <strong>−0.7～−1.3EV</strong></td></tr>
+<tr><td>天空整片死白</td><td>亮部過曝</td><td>改用<strong>高亮重點</strong>測光<span class="src s-man">p.65</span>;開啟高亮校正<span class="src s-man">p.95</span>;打開白點警告先看到問題<span class="src s-man">p.139</span></td></tr>
+<tr><td>逆光時人臉全黑</td><td>相機測整個畫面,被亮的背景拉走</td><td>曝光補償 +1EV;或改用<strong>中央重點</strong>或<strong>重點</strong>測光</td></tr>
+<tr><td>大太陽下一直過曝</td><td>F2.8 時快門上限只有 1/2500<span class="src s-spec">規格</span></td><td>縮光圈到 F5.6 以上,或開 <strong>ND 濾光鏡</strong><span class="src s-man">p.91</span></td></tr>
+<tr><td>暗部一片死黑沒細節</td><td>動態範圍不夠</td><td>開啟<strong>陰影校正</strong><span class="src s-man">p.95</span>;或改拍 RAW 之後再拉</td></tr>
+</table></div>
+<div class="box tip">
+<p style="margin-bottom:0"><strong>分辨技巧:</strong>整張都太暗 → 是曝光量的問題(調三角或曝光補償)。<br>某一塊太暗、某一塊正常 → 是測光的問題(換測光模式)。</p>
+</div>
+
+<h3>顏色不對</h3>
+<div class="tw"><table>
+<tr><th>症狀</th><th>原因</th><th>怎麼修</th></tr>
+<tr><td>室內照片整片偏黃</td><td>鎢絲燈色溫,自動白平衡沒完全修正</td><td>白平衡改<strong>鎢絲燈</strong>;或想保留暖感就用<strong>自動白平衡(暖色優先)</strong><span class="src s-man">p.73</span></td></tr>
+<tr><td>照片偏藍、很冷</td><td>陰影或陰天下拍攝</td><td>白平衡改<strong>陰影</strong>或<strong>陰天</strong></td></tr>
+<tr><td>夕陽拍起來不夠紅</td><td>自動白平衡把色偏「修正」掉了</td><td>改用 <strong>CTE</strong>,它是強調色偏而不是修正<span class="src s-man">p.74</span></td></tr>
+<tr><td>顏色時好時壞不穩定</td><td>自動白平衡在不同場景判斷不同</td><td>固定用一種白平衡,或拍 RAW 之後統一調</td></tr>
+<tr><td><strong>設了黑白,電腦打開卻是彩色</strong></td><td>影像控制不套用在 RAW 上<span class="src s-man">p.94</span></td><td>看 JPEG 那個檔;或用機內 <strong>RAW 處理</strong> 補上色調<span class="src s-man">p.109</span></td></tr>
+<tr><td>格紋衣服出現彩色波紋</td><td>摩爾紋</td><td>開啟<strong>低通濾光鏡模擬器</strong><span class="src s-man">p.91</span>;或事後用色彩摩爾紋校正<span class="src s-man">p.117</span></td></tr>
+</table></div>
+
+<h3>畫質問題</h3>
+<div class="tw"><table>
+<tr><th>症狀</th><th>原因</th><th>怎麼修</th></tr>
+<tr><td>顆粒很多、暗部有雜色</td><td>ISO 太高</td><td>降低感光度 AUTO 上限;或加大光圈讓相機不用拉 ISO</td></tr>
+<tr><td>細節像塑膠、糊糊的</td><td>雜點抑制開太強</td><td>高感光度 NR 調低或設自動<span class="src s-man">p.71</span></td></tr>
+<tr><td>整體不夠銳利,但沒有糊</td><td>光圈縮太小產生繞射</td><td>不要一直用 F16,改 F5.6～F8<span class="src s-gen">通識</span></td></tr>
+<tr><td>四個角比中間暗</td><td>鏡頭特性</td><td>開啟<strong>周邊光量校正</strong><span class="src s-man">p.94</span></td></tr>
+<tr><td>照片上有固定位置的黑點</td><td>感光元件沾灰</td><td>執行<strong>除掉灰塵</strong><span class="src s-man">p.157</span></td></tr>
+</table></div>
+
+<h3>構圖問題</h3>
+<div class="tw"><table>
+<tr><th>症狀</th><th>怎麼修</th></tr>
+<tr><td>主體太小,看不出重點</td><td><strong>走近</strong>。28mm 不能變焦,這是唯一解</td></tr>
+<tr><td>畫面很亂,不知道要看哪</td><td>減少畫面中的元素;換角度讓背景單純;靠近</td></tr>
+<tr><td>照片老是歪的</td><td>打開<strong>電子水平儀</strong><span class="src s-man">p.139</span>;開啟<strong>自動水平補正</strong><span class="src s-man">p.96</span></td></tr>
+<tr><td>人臉看起來被拉長</td><td>臉在畫面邊緣,廣角變形。把人往中間放</td></tr>
+<tr><td>拍完覺得少了什麼</td><td>通常是缺前景。找東西放在近處增加層次</td></tr>
+</table></div>
+
+<h3>操作上的意外</h3>
+<div class="tw"><table>
+<tr><th>症狀</th><th>原因</th></tr>
+<tr><td>常常拍到不想要的照片</td><td><strong>完全按下快拍</strong>被誤觸。可以關掉<span class="src s-man">p.64</span></td></tr>
+<tr><td>模式轉盤轉不動</td><td>要先按住<strong>鎖定按鈕</strong><span class="src s-man">p.14</span></td></tr>
+<tr><td>半按快門沒有對焦</td><td>快門釋放按鈕設定可能被設成「AE 鎖定」<span class="src s-man">p.60</span></td></tr>
+<tr><td>設定關機後就跑掉</td><td>去 D2 的「<strong>記憶</strong>」把該項目打開<span class="src s-man">p.138</span></td></tr>
+<tr><td>USER 模式改了設定沒被記住</td><td>USER 模式下的臨時修改不會保存,要重新執行保存<span class="src s-man">p.131</span></td></tr>
+<tr><td>不小心用手碰到螢幕就對焦跑掉</td><td>關閉觸摸 AF<span class="src s-man">p.53</span></td></tr>
+</table></div>
+
+<div class="box note">
+<p style="margin-bottom:0">如果是<strong>相機本身</strong>的問題(開不了機、記憶卡讀不到、錯誤訊息),請看第 28 章「疑難排解」,那一章整理自官方說明書的故障排除。</p>
+</div>
+
+<div class="drill"><span class="lbl">練習</span>
+<ol>
+<li>翻出你最近拍壞的 10 張,用這張表逐一找出原因。</li>
+<li>把最常出現的那個問題找出來,針對它調整設定。</li>
+<li>一週後再拍一次同樣的場景,確認問題有沒有解決。</li>
+</ol></div>
+</div></section>
