@@ -4,67 +4,12 @@
 <h2 class="ch">相機怎麼拍出一張照片</h2>
 <p class="sub">整本指南最重要的一頁。看懂這裡,後面的設定全都變成常識。</p>
 
-<p>相機做的事其實只有一件:<strong>讓一定份量的光,打在感光元件上</strong>。光太少 → 照片太暗;光太多 → 照片死白。</p>
+<p>相機的核心任務就是控制光量,而<strong>光圈、快門、ISO(曝光三角)怎麼互相牽動</strong>這件事不分廠牌都一樣,跟 GR IV 沒有關係。這一章只講 GR IV 特有的部分:<strong>模式轉盤怎麼把這三個旋鈕分給你跟相機</strong>。</p>
 
-<figure>
-<svg viewBox="0 0 640 200" role="img" aria-label="光線進入相機的路徑">
-<rect width="640" height="200" fill="#fff"/>
-<g stroke="#B8862C" stroke-width="1.5" opacity="0.85">
-<line x1="20" y1="45" x2="200" y2="90"/><line x1="20" y1="75" x2="200" y2="95"/>
-<line x1="20" y1="105" x2="200" y2="100"/><line x1="20" y1="135" x2="200" y2="105"/>
-<line x1="20" y1="165" x2="200" y2="110"/>
-</g>
-<text x="22" y="30" font-family="Noto Sans TC" font-size="12" fill="#63676B">光</text>
-<ellipse cx="215" cy="100" rx="18" ry="46" fill="none" stroke="#16191B" stroke-width="2"/>
-<text x="182" y="172" font-family="Noto Sans TC" font-size="12" fill="#16191B">① 鏡頭</text>
-<circle cx="300" cy="100" r="40" fill="none" stroke="#16191B" stroke-width="2"/>
-<circle cx="300" cy="100" r="19" fill="#16191B"/>
-<text x="272" y="172" font-family="Noto Sans TC" font-size="12" fill="#16191B">② 光圈</text>
-<rect x="360" y="55" width="14" height="90" fill="#16191B"/>
-<rect x="360" y="100" width="14" height="45" fill="#fff" stroke="#16191B" stroke-width="1.5"/>
-<text x="340" y="172" font-family="Noto Sans TC" font-size="12" fill="#16191B">③ 快門</text>
-<rect x="430" y="52" width="16" height="96" fill="#37C97A"/>
-<text x="405" y="172" font-family="Noto Sans TC" font-size="12" fill="#16191B">④ 感光元件</text>
-<path d="M446 100 L500 100" stroke="#16191B" stroke-width="1.5" marker-end="url(#a)"/>
-<defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#16191B"/></marker></defs>
-<rect x="508" y="66" width="106" height="68" fill="none" stroke="#16191B" stroke-width="2"/>
-<text x="524" y="106" font-family="Noto Sans TC" font-size="13" fill="#16191B">照片</text>
-</svg>
-<figcaption>光穿過鏡頭,經過光圈這個「洞」,快門這道「門」決定它開多久,最後打在感光元件上變成照片。<span class="src s-gen">攝影通識</span></figcaption>
-</figure>
-
-<h3>你只有三個旋鈕可以控制光量</h3>
-<div class="tw"><table>
-<tr><th>名稱</th><th>白話</th><th>調大會怎樣</th></tr>
-<tr><td><strong>光圈</strong></td><td>洞多大</td><td>洞越大越亮,而且背景越模糊</td></tr>
-<tr><td><strong>快門速度</strong></td><td>門開多久</td><td>開越久越亮,但會晃、會拖影</td></tr>
-<tr><td><strong>感光度 ISO</strong></td><td>訊號放多大</td><td>放越大越亮,但雜訊越多</td></tr>
-</table></div>
-<p>這三個合稱<strong>曝光三角</strong>。它們有一個很關鍵的性質:</p>
 <div class="box tip">
-<span class="lbl">曝光三角的核心</span>
-<p style="margin-bottom:0"><strong>三個之中,任一個讓照片變亮一倍,另一個就得讓它變暗一半,總亮度才不變。</strong> 也就是說,同樣亮度可以用無數種組合拍出來——但每種組合的<em>畫面感覺完全不同</em>。這就是攝影可以創作的原因。<span class="src s-gen">攝影通識</span></p>
+<span class="lbl">開始之前</span>
+<p style="margin-bottom:0">如果還不清楚光圈、快門、ISO 各自的「副作用」是什麼、為什麼調一個另外兩個就要跟著變,建議先讀<a href="#fund:01-exposure-triangle.html">攝影基礎分頁:曝光三角</a>,兩三分鐘就懂,回來讀這一章會順很多。GR IV 的實際數值範圍是光圈 <strong>F2.8～F16</strong>、快門 <strong>1/4000 秒～30 秒</strong>、ISO <strong>100～204800</strong> <span class="src s-spec">官方規格</span>。</p>
 </div>
-
-<figure>
-<svg viewBox="0 0 640 240" role="img" aria-label="曝光三角">
-<rect width="640" height="240" fill="#fff"/>
-<polygon points="320,30 545,205 95,205" fill="none" stroke="#16191B" stroke-width="2"/>
-<circle cx="320" cy="30" r="7" fill="#16191B"/><circle cx="545" cy="205" r="7" fill="#16191B"/><circle cx="95" cy="205" r="7" fill="#16191B"/>
-<text x="320" y="18" text-anchor="middle" font-family="Noto Sans TC" font-size="15" font-weight="700" fill="#16191B">光圈</text>
-<text x="320" y="60" text-anchor="middle" font-family="Noto Sans TC" font-size="11.5" fill="#63676B">F2.8 ⟷ F16</text>
-<text x="320" y="78" text-anchor="middle" font-family="Noto Sans TC" font-size="11.5" fill="#63676B">同時決定景深</text>
-<text x="560" y="200" font-family="Noto Sans TC" font-size="15" font-weight="700" fill="#16191B" text-anchor="end">ISO</text>
-<text x="560" y="222" font-family="Noto Sans TC" font-size="11.5" fill="#63676B" text-anchor="end">100 ⟷ 204800</text>
-<text x="560" y="238" font-family="Noto Sans TC" font-size="11.5" fill="#63676B" text-anchor="end">同時決定雜訊</text>
-<text x="80" y="200" font-family="Noto Sans TC" font-size="15" font-weight="700" fill="#16191B">快門</text>
-<text x="80" y="222" font-family="Noto Sans TC" font-size="11.5" fill="#63676B">30s ⟷ 1/4000</text>
-<text x="80" y="238" font-family="Noto Sans TC" font-size="11.5" fill="#63676B">同時決定動態</text>
-<text x="320" y="140" text-anchor="middle" font-family="Noto Sans TC" font-size="13" fill="#16191B">照片的亮度</text>
-<text x="320" y="162" text-anchor="middle" font-family="Noto Sans TC" font-size="11.5" fill="#63676B">= 三者共同決定</text>
-</svg>
-<figcaption>三個角各自有「副作用」——這些副作用才是你真正要挑的東西。數值範圍依 <span class="src s-spec">官方規格</span>。</figcaption>
-</figure>
 
 <h3>所以模式轉盤在做什麼</h3>
 <p>模式轉盤決定的是:<strong>這三個旋鈕,哪些你自己轉,哪些交給相機</strong>。GR IV 有五種曝光模式 <span class="src s-man">說明書 p.50–51</span>:</p>
