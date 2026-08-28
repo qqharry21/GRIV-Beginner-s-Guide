@@ -1,11 +1,31 @@
 {
   "brand": "DJI Osmo Pocket 4 Pro",
-  "h1": "指南(建置中)",
-  "subtitleHTML": "雙鏡頭口袋雲台相機<br>操作章節陸續補完中",
+  "h1": "完整指南",
+  "subtitleHTML": "雙鏡頭口袋雲台相機<br>基礎認識・設定・拍攝手法・配件",
   "titleSuffix": "DJI Osmo Pocket 4 Pro 指南 — 攝影教學技巧指南",
   "tool": null,
   "files": [
-    "00-overview.html",
-    "01-roadmap.html"
+    "00-what-is-it.html",
+    "01-body-and-gestures.html",
+    "02-shooting-modes.html",
+    "03-dual-lens.html",
+    "04-exposure-wb-basics.html",
+    "05-dlog2-color.html",
+    "06-af-tracking.html",
+    "07-gimbal-modes.html",
+    "08-special-modes.html",
+    "09-custom-button.html",
+    "10-vlog-technique.html",
+    "11-tracking-shots.html",
+    "12-portrait-closeup.html",
+    "13-lowlight.html",
+    "14-mimo-app.html",
+    "15-accessory-power.html",
+    "16-accessory-audio.html",
+    "17-accessory-optics.html",
+    "18-accessory-mounts.html",
+    "19-accessory-protect.html",
+    "20-precautions.html",
+    "21-battery-care-faq.html"
   ]
 }
