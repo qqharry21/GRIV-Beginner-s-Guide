@@ -1,6 +1,9 @@
-/* RICOH GR IV 新手完全指南 — Service Worker
-   改了 index.html 之後，把 VERSION 加一，使用者下次開啟就會拿到新版。 */
-const VERSION   = 'gr4-v7';
+/* 攝影教學技巧指南 — Service Worker
+   改了任何 .html / .json 內容檔(index.html、caption.html、tabs.json、
+   每個分頁的 manifest.json、每個分頁 chapters 資料夾裡的章節檔案)之後,
+   一定要把 VERSION 加一,使用者下次開啟才會拿到新版,不然會一直被
+   cache-first 的 RUNTIME 快取卡在舊內容。 */
+const VERSION   = 'gr4-v8';
 const CORE      = VERSION + '-core';
 const RUNTIME   = VERSION + '-runtime';
 
