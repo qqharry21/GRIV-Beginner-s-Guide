@@ -10,6 +10,29 @@
 </div>
 
 <h3>常見測光模式,各自在算哪一塊</h3>
+<figure>
+<svg viewBox="0 0 640 190" role="img" aria-label="三種測光模式各自看哪一塊畫面">
+<rect width="640" height="190" fill="#fff"/>
+<rect x="30" y="20" width="170" height="120" fill="none" stroke="#16191B" stroke-width="1.5"/>
+<line x1="30" y1="60" x2="200" y2="60" stroke="#D6D6D1"/>
+<line x1="30" y1="100" x2="200" y2="100" stroke="#D6D6D1"/>
+<line x1="86.6" y1="20" x2="86.6" y2="140" stroke="#D6D6D1"/>
+<line x1="143.3" y1="20" x2="143.3" y2="140" stroke="#D6D6D1"/>
+<rect x="30" y="20" width="170" height="120" fill="#37C97A" fill-opacity=".28"/>
+<text x="115" y="165" text-anchor="middle" font-family="Noto Sans TC" font-size="13" font-weight="700" fill="#16191B">多區測光</text>
+<text x="115" y="182" text-anchor="middle" font-family="Noto Sans TC" font-size="11" fill="#63676B">整個畫面都算</text>
+<rect x="235" y="20" width="170" height="120" fill="none" stroke="#16191B" stroke-width="1.5"/>
+<circle cx="320" cy="80" r="45" fill="#37C97A" fill-opacity=".45"/>
+<circle cx="320" cy="80" r="20" fill="#37C97A" fill-opacity=".65"/>
+<text x="320" y="165" text-anchor="middle" font-family="Noto Sans TC" font-size="13" font-weight="700" fill="#16191B">中央重點測光</text>
+<text x="320" y="182" text-anchor="middle" font-family="Noto Sans TC" font-size="11" fill="#63676B">中間權重比較高</text>
+<rect x="440" y="20" width="170" height="120" fill="none" stroke="#16191B" stroke-width="1.5"/>
+<circle cx="525" cy="80" r="10" fill="#37C97A" fill-opacity=".85"/>
+<text x="525" y="165" text-anchor="middle" font-family="Noto Sans TC" font-size="13" font-weight="700" fill="#16191B">點測光</text>
+<text x="525" y="182" text-anchor="middle" font-family="Noto Sans TC" font-size="11" fill="#63676B">只算一小點</text>
+</svg>
+<figcaption>綠色深淺代表測光表「參考權重」的高低:多區測光整張臉都算、中央重點測光偏重中間、點測光只看一個小點(通常是對焦點附近)。範圍越小,越適合逆光這種畫面裡亮暗差異很大的場景。</figcaption>
+</figure>
 <div class="tw"><table>
 <tr><th>測光模式</th><th>抓哪裡當基準</th><th>適合</th></tr>
 <tr><td>多區(評價)測光</td><td>把畫面切成很多區塊,綜合分析亮暗分佈與對比</td><td>大多數日常場景,預設值</td></tr>
@@ -31,6 +54,30 @@
 
 <h3>直方圖怎麼看</h3>
 <p>直方圖是畫面裡「每個亮度值有多少像素」的長條圖,橫軸從左(全黑)到右(全白),縱軸是像素數量 <span class="src s-gen">通用知識</span>。看直方圖比看螢幕上的畫面更準,因為戶外強光下螢幕本身就不準。</p>
+<figure>
+<svg viewBox="0 0 640 210" role="img" aria-label="四種常見直方圖形狀">
+<rect width="640" height="210" fill="#fff"/>
+<g font-family="Noto Sans TC">
+<rect x="20" y="20" width="140" height="90" fill="none" stroke="#D6D6D1"/>
+<rect x="24" y="30" width="8" height="80" fill="#C4453C"/><rect x="33" y="45" width="8" height="65" fill="#C4453C"/><rect x="42" y="60" width="8" height="50" fill="#C4453C"/><rect x="51" y="80" width="8" height="30" fill="#C4453C" fill-opacity=".5"/><rect x="60" y="95" width="8" height="15" fill="#B8862C" fill-opacity=".4"/><rect x="80" y="103" width="8" height="7" fill="#B8862C" fill-opacity=".3"/><rect x="100" y="106" width="8" height="4" fill="#B8862C" fill-opacity=".2"/><rect x="130" y="108" width="8" height="2" fill="#B8862C" fill-opacity=".15"/>
+<text x="90" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#16191B">貼左緣</text>
+<text x="90" y="143" text-anchor="middle" font-size="10.5" fill="#63676B">大量死黑・欠曝</text>
+<rect x="180" y="20" width="140" height="90" fill="none" stroke="#D6D6D1"/>
+<rect x="184" y="106" width="8" height="4" fill="#B8862C" fill-opacity=".15"/><rect x="214" y="103" width="8" height="7" fill="#B8862C" fill-opacity=".3"/><rect x="234" y="95" width="8" height="15" fill="#B8862C" fill-opacity=".4"/><rect x="252" y="80" width="8" height="30" fill="#37C97A" fill-opacity=".5"/><rect x="261" y="60" width="8" height="50" fill="#37C97A"/><rect x="270" y="45" width="8" height="65" fill="#37C97A"/><rect x="279" y="30" width="8" height="80" fill="#37C97A"/><rect x="288" y="20" width="8" height="90" fill="#37C97A"/>
+<text x="250" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#16191B">貼右緣</text>
+<text x="250" y="143" text-anchor="middle" font-size="10.5" fill="#63676B">大量死白・過曝</text>
+<rect x="340" y="20" width="140" height="90" fill="none" stroke="#D6D6D1"/>
+<rect x="346" y="100" width="8" height="10" fill="#37C97A" fill-opacity=".3"/><rect x="360" y="80" width="8" height="30" fill="#37C97A" fill-opacity=".4"/><rect x="374" y="55" width="8" height="55" fill="#37C97A" fill-opacity=".6"/><rect x="388" y="35" width="8" height="75" fill="#37C97A"/><rect x="402" y="30" width="8" height="80" fill="#37C97A"/><rect x="416" y="45" width="8" height="65" fill="#37C97A" fill-opacity=".7"/><rect x="430" y="70" width="8" height="40" fill="#37C97A" fill-opacity=".4"/><rect x="444" y="95" width="8" height="15" fill="#37C97A" fill-opacity=".3"/>
+<text x="410" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#16191B">中間隆起,不貼緣</text>
+<text x="410" y="143" text-anchor="middle" font-size="10.5" fill="#63676B">曝光安全</text>
+<rect x="500" y="20" width="120" height="90" fill="none" stroke="#D6D6D1"/>
+<rect x="504" y="35" width="7" height="75" fill="#C4453C"/><rect x="512" y="55" width="7" height="55" fill="#C4453C" fill-opacity=".6"/><rect x="520" y="85" width="7" height="25" fill="#C4453C" fill-opacity=".3"/><rect x="555" y="90" width="7" height="20" fill="#37C97A" fill-opacity=".3"/><rect x="600" y="55" width="7" height="55" fill="#37C97A" fill-opacity=".6"/><rect x="608" y="30" width="7" height="80" fill="#37C97A"/>
+<text x="560" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#16191B">兩端都貼緣</text>
+<text x="560" y="143" text-anchor="middle" font-size="10.5" fill="#63676B">反差太大</text>
+</g>
+</svg>
+<figcaption>橫軸左邊全黑、右邊全白。貼緣代表資訊已經丟失(紅色標出);中間隆起、兩端都不貼緣是最安全的形狀;兩端都有一小坨,代表這個場景本身反差就很大,得先決定犧牲哪一端。</figcaption>
+</figure>
 <div class="tw"><table>
 <tr><th>直方圖長相</th><th>代表什麼</th><th>該怎麼做</th></tr>
 <tr><td>整坨集中在最左邊,貼著左緣</td><td>大量死黑,陰影細節丟失</td><td>加曝光補償或放慢快門/開大光圈</td></tr>
