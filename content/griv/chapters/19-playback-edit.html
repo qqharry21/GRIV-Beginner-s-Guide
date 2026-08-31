@@ -82,6 +82,30 @@
 </div>
 
 <h3>等級調整怎麼調(官方給的方法)</h3>
+<figure>
+<svg viewBox="0 0 640 190" role="img" aria-label="等級調整:移動陰影、中間、高亮三個點來修正曝光過度或不足">
+<rect width="640" height="190" fill="#fff"/>
+<g font-family="Noto Sans TC">
+<rect x="40" y="20" width="220" height="80" fill="none" stroke="#D6D6D1"/>
+<path d="M40,90 Q90,30 130,55 T260,90" stroke="#37C97A" stroke-width="2" fill="none"/>
+<circle cx="55" cy="100" r="6" fill="#16191B"/>
+<circle cx="150" cy="100" r="6" fill="#16191B"/>
+<circle cx="245" cy="70" r="6" fill="#C4453C"/>
+<line x1="245" y1="76" x2="245" y2="100" stroke="#C4453C" stroke-width="1.5" stroke-dasharray="3 3"/>
+<text x="150" y="120" text-anchor="middle" font-size="12" font-weight="700" fill="#16191B">曝光過度</text>
+<text x="150" y="135" text-anchor="middle" font-size="10" fill="#63676B">把亮部的點(紅)往左移到山峰邊緣</text>
+<rect x="380" y="20" width="220" height="80" fill="none" stroke="#D6D6D1"/>
+<path d="M380,95 Q430,90 460,50 T600,25" stroke="#37C97A" stroke-width="2" fill="none"/>
+<circle cx="395" cy="100" r="6" fill="#C4453C"/>
+<line x1="395" y1="76" x2="395" y2="100" stroke="#C4453C" stroke-width="1.5" stroke-dasharray="3 3"/>
+<circle cx="490" cy="100" r="6" fill="#16191B"/>
+<circle cx="585" cy="100" r="6" fill="#16191B"/>
+<text x="490" y="120" text-anchor="middle" font-size="12" font-weight="700" fill="#16191B">曝光不足</text>
+<text x="490" y="135" text-anchor="middle" font-size="10" fill="#63676B">把暗部的點(紅)往右移到山峰邊緣</text>
+</g>
+</svg>
+<figcaption>直方圖山峰偏一邊,代表另一邊的點沒對齊資料範圍。把該側的點移到山峰邊緣,等於告訴相機「這裡才是真正的黑/真正的白」,對比度會立刻被拉回正常。</figcaption>
+</figure>
 <ul>
 <li>向左或向右移動<strong>中間點</strong>可調整整體亮度:移左變亮,移右變暗。</li>
 <li>若影像<strong>曝光過度</strong>,把左側的點向右移,直到與直方圖山峰邊緣對齊。</li>
