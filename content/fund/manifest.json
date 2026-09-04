@@ -6,6 +6,7 @@
   "tool": null,
   "files": [
     "00-intro.html",
+    "10-memory-cards.html",
     "01-exposure-triangle.html",
     "02-aperture-shutter-iso.html",
     "03-metering-histogram.html",
@@ -14,6 +15,7 @@
     "06-composition-advanced.html",
     "07-light-and-color.html",
     "08-photographers-eye.html",
-    "09-practice-plan.html"
+    "09-practice-plan.html",
+    "11-post-production.html"
   ]
 }
