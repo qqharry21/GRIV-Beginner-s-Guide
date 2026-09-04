@@ -6,6 +6,7 @@
   "tool": null,
   "files": [
     "00-intro.html",
+    "10-memory-cards.html",
     "01-exposure-triangle.html",
     "02-aperture-shutter-iso.html",
     "03-metering-histogram.html",
