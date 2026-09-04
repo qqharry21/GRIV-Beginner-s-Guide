@@ -1,0 +1,43 @@
+<section data-t="風格化調色與 LUT:用色彩說故事" data-g="調色進階">
+<div class="osd"><span class="hot">進階</span><span class="no"></span></div>
+<div class="wrap">
+<h2 class="ch">風格化調色與 LUT:用色彩說故事</h2>
+<p class="sub">前面幾章都在講「調對」,這一章開始講「調成你要的樣子」。</p>
+
+<h3>色彩是有情緒的</h3>
+<p>暖色調(偏橘偏黃)容易給人懷舊、溫馨、放鬆的感覺;冷色調(偏藍偏青)容易給人疏離、冷靜、科技感;高對比、高飽和給人強烈、有力的感覺;低對比、低飽和給人柔和、內斂的感覺 <span class="src s-gen">通用知識</span>。這些不是絕對規則,但知道這個對應關係,調色時才是在「做選擇」,而不是隨便拉滑桿拉到自己喜歡為止。</p>
+<div class="tw"><table>
+<tr><th>常見風格</th><th>色彩傾向</th><th>常見用途</th></tr>
+<tr><td>Teal &amp; Orange(青橙對比)</td><td>陰影偏青藍,膚色/亮部偏橙</td><td>電影感最常見的商業配色,利用互補色讓主體(通常是人)從背景跳出來</td></tr>
+<tr><td>底片感</td><td>對比偏低、黑色不是純黑而是偏灰、輕微顆粒</td><td>懷舊、日常紀錄的氛圍</td></tr>
+<tr><td>高對比黑白</td><td>去除全部色彩、拉高對比</td><td>強調形狀、光影、情緒張力,弱化色彩帶來的干擾</td></tr>
+<tr><td>清透淡色</td><td>整體偏亮、低飽和、陰影不死黑</td><td>清新、輕盈的日系風格</td></tr>
+</table></div>
+
+<h3>LUT 到底是什麼</h3>
+<p>LUT(Look-Up Table,色彩查找表)是一張「輸入顏色 → 輸出顏色」的對照表,套用之後,畫面裡的每個顏色都會依照這張表被重新映射 <span class="src s-gen">通用知識</span>。LUT 分成兩種用途完全不同的類型,新手最容易搞混這兩種:</p>
+<div class="tw"><table>
+<tr><th></th><th>技術性 LUT</th><th>創意 LUT</th></tr>
+<tr><td>作用</td><td>把 Log/RAW 這種刻意拍平的素材,轉換回接近正常對比的畫面</td><td>在正常畫面上疊加一層風格化的色彩效果</td></tr>
+<tr><td>使用時機</td><td>調色流程的第一步,把素材「正常化」</td><td>正常化之後,作為創意調色的起點或參考</td></tr>
+<tr><td>例子</td><td>D-Log 2 轉 Rec.709 的官方 LUT</td><td>模擬某款底片色調、電影感配色的風格包</td></tr>
+</table></div>
+<p>D-Log 2 素材為什麼一定要先套技術性 LUT 才能用,見<a href="#pocket4pro:05-dlog2-color.html">D-Log 2 與色彩模式</a>。</p>
+
+<div class="box warn">
+<span class="lbl">LUT 是起點,不是終點</span>
+<p style="margin-bottom:0"><span class="src s-mine">本站建議</span> 同一個創意 LUT,套在曝光正常的素材跟套在曝光不足的素材上,效果會完全不一樣——LUT 只是把顏色按照固定規則重新映射,不會幫你先修好曝光問題。正確順序永遠是:<a href="#advanced:03-basic-workflow.html">先完成基礎調色</a>把素材調到健康的狀態,再套用創意 LUT,套用之後通常還要再微調一次(飽和度、對比),不能套完就直接輸出。</p>
+</div>
+
+<div class="box tip">
+<span class="lbl">不知道從哪裡開始找風格,可以這樣練</span>
+<p style="margin-bottom:0">找三部你喜歡調性的電影或影片,截圖幾個代表性畫面,打開向量示波器觀察它們的色彩分佈傾向(例如陰影是不是集中在青藍區、膚色是不是特別突出),再試著在自己的素材上模仿類似的分佈,而不是直接套別人的 LUT 照抄。理解「為什麼」比收集 LUT 檔案更重要。</p>
+</div>
+
+<div class="drill"><span class="lbl">練習</span>
+<ol>
+<li>找同一段素材,套用三種不同風格傾向的創意 LUT(例如青橙、底片感、高對比黑白),比較同一段畫面在不同色彩語言下給人的感覺差異。</li>
+<li>刻意在曝光不足的素材上套用你覺得好看的 LUT,再對比同一個 LUT 套在曝光正常素材上的差異,體會「LUT 不是萬能」這句話。</li>
+<li>套用完 LUT 之後,回頭用<a href="#advanced:02-scopes.html">向量示波器</a>檢查有沒有色彩超出健康範圍,需要的話再手動微調。</li>
+</ol></div>
+</div></section>
