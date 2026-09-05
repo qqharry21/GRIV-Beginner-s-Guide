@@ -1,0 +1,79 @@
+<section data-t="讀懂示波器:波形圖與向量示波器,別再用肉眼判斷" data-g="調色基礎">
+<div class="osd"><span class="hot">進階</span><span class="no"></span></div>
+<div class="wrap">
+<h2 class="ch">讀懂示波器:波形圖與向量示波器,別再用肉眼判斷</h2>
+<p class="sub">螢幕會騙你,數據不會。這一章教你看懂調色軟體裡最重要的兩個工具。</p>
+
+<div class="box warn">
+<span class="lbl">為什麼不能只靠螢幕判斷</span>
+<p style="margin-bottom:0"><span class="src s-gen">通用知識</span> 沒校色過的螢幕、房間裡的環境光、螢幕亮度設定,都會讓你對「這樣夠不夠亮、夠不夠飽和」的判斷失準——同一段調色,在你自己的螢幕上看起來剛好,拿到別人的螢幕、手機或投影機上看卻可能過曝、過飽和。示波器直接讀取畫面的數據,不受你眼睛跟螢幕狀態影響,是唯一在不同顯示設備間都可靠的判斷基準。</p>
+</div>
+
+<h3>波形圖(Waveform):看亮度夠不夠</h3>
+<p>波形圖把畫面裡每一個直向位置的亮度資訊,轉成一條條分佈曲線畫出來——橫軸對應畫面的左右位置,縱軸是亮度(單位通常是 IRE,0 到 100)<span class="src s-gen">通用知識</span>。</p>
+<figure>
+<svg viewBox="0 0 560 220" role="img" aria-label="波形圖示意:縱軸是亮度,曲線貼頂代表亮部過曝、貼底代表暗部死黑">
+<rect width="560" height="220" fill="#fff"/>
+<g font-family="Noto Sans TC">
+<rect x="50" y="20" width="480" height="160" fill="none" stroke="#D6D6D1"/>
+<line x1="50" y1="30" x2="530" y2="30" stroke="#E4E4E1" stroke-width="1" stroke-dasharray="2 2"/>
+<text x="40" y="34" text-anchor="end" font-size="10" fill="#63676B">100</text>
+<line x1="50" y1="170" x2="530" y2="170" stroke="#E4E4E1" stroke-width="1" stroke-dasharray="2 2"/>
+<text x="40" y="174" text-anchor="end" font-size="10" fill="#63676B">0</text>
+<path d="M50,150 C120,60 160,30 220,30 C260,30 280,90 320,110 C380,140 420,150 460,100 C490,70 510,50 530,40"
+  stroke="#37C97A" stroke-width="2.5" fill="none"/>
+<rect x="220" y="26" width="60" height="8" fill="#C4453C" fill-opacity=".5"/>
+<text x="250" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#C4453C">貼頂=過曝</text>
+<text x="480" y="65" text-anchor="middle" font-size="11" fill="#63676B">亮部仍在範圍內</text>
+</g>
+</svg>
+<figcaption>曲線貼著頂端(100 IRE)那一段,代表對應畫面位置的亮部已經死白、細節救不回來,不管螢幕上看起來多好看;曲線貼底(0 IRE)則是暗部死黑。健康的曝光通常是曲線在頂底之間有起伏,沒有大面積貼平在邊界上。</figcaption>
+</figure>
+<div class="tw"><table>
+<tr><th>波形長相</th><th>代表什麼</th></tr>
+<tr><td>曲線貼著 100 那條線、變成一段平的</td><td>亮部過曝,那個範圍的細節已經沒有,調色救不回來</td></tr>
+<tr><td>曲線貼著 0 那條線、變成一段平的</td><td>暗部死黑,同樣是資訊已經消失</td></tr>
+<tr><td>曲線集中在中間一小段範圍</td><td>對比不足、畫面發灰,可以放心把黑白兩端往外撐</td></tr>
+<tr><td>曲線分佈平均、佔滿大半個範圍</td><td>曝光跟對比健康,通常是可以繼續往下調風格的起點</td></tr>
+</table></div>
+
+<h3>向量示波器(Vectorscope):看顏色偏不偏、飽和度會不會過頭</h3>
+<p>向量示波器把畫面裡每個像素的色相跟飽和度,畫成一個圓盤上的點——離圓心越遠代表飽和度越高,角度代表色相(紅、黃、綠、青、藍、洋紅六個方向)<span class="src s-gen">通用知識</span>。</p>
+<figure>
+<svg viewBox="0 0 320 320" role="img" aria-label="向量示波器示意:離圓心越遠飽和度越高,角度代表色相,膚色線是重要的參考基準">
+<rect width="320" height="320" fill="#fff"/>
+<g font-family="Noto Sans TC">
+<circle cx="160" cy="160" r="130" fill="none" stroke="#D6D6D1"/>
+<circle cx="160" cy="160" r="90" fill="none" stroke="#E4E4E1" stroke-dasharray="2 2"/>
+<circle cx="160" cy="160" r="50" fill="none" stroke="#E4E4E1" stroke-dasharray="2 2"/>
+<line x1="160" y1="30" x2="160" y2="290" stroke="#F0F0EC" stroke-width="1"/>
+<line x1="30" y1="160" x2="290" y2="160" stroke="#F0F0EC" stroke-width="1"/>
+<line x1="160" y1="160" x2="240" y2="95" stroke="#B8862C" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="248" y="90" font-size="11" font-weight="700" fill="#B8862C">膚色線</text>
+<circle cx="215" cy="118" r="6" fill="#E8A26B"/>
+<circle cx="205" cy="235" r="5" fill="#2E9E5F"/>
+<circle cx="95" cy="215" r="5" fill="#2F5F91"/>
+<circle cx="160" cy="160" r="4" fill="#16191B"/>
+<text x="160" y="150" text-anchor="middle" font-size="10" fill="#63676B">圓心=無彩色</text>
+</g>
+</svg>
+<figcaption>大部分向量示波器上都印有一條固定的「膚色線」(圖中橘色虛線)——不管什麼人種,健康的膚色點通常會落在這條線附近。這是判斷「白平衡校正得對不對」的一個很實用的捷徑:膚色點沒有落在膚色線上,通常代表整體白平衡還有偏色。</figcaption>
+</figure>
+<div class="tw"><table>
+<tr><th>觀察重點</th><th>怎麼判讀</th></tr>
+<tr><td>所有的點是否集中在圓心附近</td><td>過度集中代表畫面偏灰、飽和度不足</td></tr>
+<tr><td>點是否超出最外圈</td><td>代表飽和度已經超出合理範圍,是「調色過頭」最直接的證據</td></tr>
+<tr><td>膚色的點有沒有落在膚色線上</td><td>沒有落在線上,代表白平衡可能還有偏色需要校正</td></tr>
+<tr><td>點的分佈是否偏向某個角度</td><td>整體偏向單一色相,代表畫面可能有色偏,除非是刻意的風格選擇</td></tr>
+</table></div>
+
+<h3>還有一個常用的:RGB 分量圖(Parade)</h3>
+<p>把紅、綠、藍三個色版的波形圖並排顯示,能直接看出色偏——健康的中性灰在三個色版裡應該落在同樣高度,如果某個色版整體偏高或偏低,代表畫面在那個顏色上有偏移 <span class="src s-gen">通用知識</span>。</p>
+
+<div class="drill"><span class="lbl">練習</span>
+<ol>
+<li>找一張逆光或高反差的照片,打開波形圖,找出畫面裡哪些區域已經貼頂或貼底——這些地方是調色救不回來的,先在心裡標記起來。</li>
+<li>找一張有人臉的照片,打開向量示波器,檢查膚色的點有沒有落在膚色線上;如果沒有,試著調白平衡讓它落上去,再回頭看螢幕上的畫面是否也變得更「對」。</li>
+<li>同一段素材,先憑肉眼調到自己滿意,再打開示波器檢查有沒有踩到過曝、色偏、飽和度過頭這幾個陷阱。</li>
+</ol></div>
+</div></section>

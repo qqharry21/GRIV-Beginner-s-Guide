@@ -1,0 +1,20 @@
+{
+  "brand": "攝影進階",
+  "h1": "調色與剪輯完全指南",
+  "subtitleHTML": "從照片調色到 DaVinci Resolve 剪輯<br>不分機型的新手到進階後製工作流",
+  "titleSuffix": "攝影進階:調色與剪輯 — 攝影教學技巧指南",
+  "tool": null,
+  "files": [
+    "00-intro.html",
+    "01-color-fundamentals.html",
+    "02-scopes.html",
+    "03-basic-workflow.html",
+    "04-primary-secondary.html",
+    "05-creative-grading-luts.html",
+    "06-log-matching.html",
+    "07-resolve-interface.html",
+    "08-basic-editing.html",
+    "09-color-page-to-edit.html",
+    "10-delivery-export.html"
+  ]
+}

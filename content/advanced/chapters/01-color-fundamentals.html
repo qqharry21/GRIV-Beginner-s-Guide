@@ -1,0 +1,70 @@
+<section data-t="色彩調整的核心概念:色溫、對比、飽和度在調什麼" data-g="調色基礎">
+<div class="osd"><span class="hot">進階</span><span class="no"></span></div>
+<div class="wrap">
+<h2 class="ch">色彩調整的核心概念:色溫、對比、飽和度在調什麼</h2>
+<p class="sub">調色軟體的滑桿名稱幾乎每一套都長得差不多,先搞懂每一個真正在動什麼,之後不管用哪套軟體都不會迷路。</p>
+
+<h3>色溫與色調:兩條互相垂直的軸</h3>
+<p>白平衡其實是兩個獨立的調整疊在一起,很多新手以為只有一條「偏黃—偏藍」的軸,其實是兩條垂直的軸同時在動 <span class="src s-gen">通用知識</span>。</p>
+<figure>
+<svg viewBox="0 0 500 260" role="img" aria-label="色溫與色調是兩條互相垂直的軸,合起來才是完整的白平衡調整">
+<rect width="500" height="260" fill="#fff"/>
+<g font-family="Noto Sans TC">
+<rect x="60" y="30" width="380" height="200" fill="none" stroke="#D6D6D1"/>
+<defs>
+<linearGradient id="tempg" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#2F5F91"/><stop offset="1" stop-color="#C4863C"/>
+</linearGradient>
+<linearGradient id="tintg" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#2E9E5F"/><stop offset="1" stop-color="#B24FA0"/>
+</linearGradient>
+</defs>
+<rect x="60" y="120" width="380" height="20" fill="url(#tempg)"/>
+<rect x="240" y="30" width="20" height="200" fill="url(#tintg)"/>
+<text x="60" y="20" font-size="12" font-weight="700" fill="#2F5F91">偏藍(低色溫數值感覺)</text>
+<text x="330" y="20" font-size="12" font-weight="700" fill="#C4863C">偏橘(高色溫數值感覺)</text>
+<text x="270" y="45" font-size="12" font-weight="700" fill="#2E9E5F">偏綠</text>
+<text x="270" y="222" font-size="12" font-weight="700" fill="#B24FA0">偏洋紅</text>
+<text x="250" y="135" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">色溫軸</text>
+<circle cx="250" cy="130" r="7" fill="#16191B" stroke="#fff" stroke-width="2"/>
+</g>
+</svg>
+<figcaption>水平軸是「色溫(Temperature)」,調的是藍—橘之間的偏向;垂直軸是「色調(Tint)」,調的是綠—洋紅之間的偏向。日光燈、螢光燈常常需要同時調這兩軸才能校正到中性灰,只調色溫、不管色調,校正結果通常還是會偏綠或偏洋紅。</figcaption>
+</figure>
+<div class="tw"><table>
+<tr><th>軸</th><th>調的是什麼</th><th>常見情境</th></tr>
+<tr><td>色溫(Temperature)</td><td>藍 ↔ 橘的偏向</td><td>鎢絲燈下拍的素材偏橘,需要往藍調;陰天拍的偏藍,需要往橘調</td></tr>
+<tr><td>色調(Tint)</td><td>綠 ↔ 洋紅的偏向</td><td>日光燈、部分 LED 燈光源常帶綠色偏色,需要往洋紅調才會校正回中性</td></tr>
+</table></div>
+
+<h3>明暗控制:五個區間,各自管一段亮度</h3>
+<p>大多數調色工具把明暗拆成五段獨立控制,而不是只有一個「亮度」滑桿——這樣才能只調暗部、不影響亮部,反之亦然 <span class="src s-gen">通用知識</span>。</p>
+<div class="tw"><table>
+<tr><th>控制項</th><th>影響範圍</th><th>典型用途</th></tr>
+<tr><td>黑色(Black)</td><td>畫面裡最暗的像素</td><td>決定「真正的黑」落在哪裡,拉高會讓黑不夠黑、畫面發灰</td></tr>
+<tr><td>陰影(Shadow)</td><td>偏暗但不是最暗的區域</td><td>拉高可以看到暗部細節,常用在逆光補救暗部死黑</td></tr>
+<tr><td>對比(Contrast)</td><td>整體明暗的落差幅度</td><td>拉高讓畫面更「有力」,拉太高會犧牲亮暗兩端的細節</td></tr>
+<tr><td>亮部(Highlight)</td><td>偏亮但不是最亮的區域</td><td>拉低可以救回快死白的天空、雲層細節</td></tr>
+<tr><td>白色(White)</td><td>畫面裡最亮的像素</td><td>決定「真正的白」落在哪裡,拉低會讓白不夠白、畫面發灰</td></tr>
+</table></div>
+<div class="box tip">
+<span class="lbl">黑白兩端先定錨,中間再細調</span>
+<p style="margin-bottom:0"><span class="src s-mine">本站建議</span> 大部分調色流程會先用黑色跟白色兩個控制項,把畫面的明暗範圍「撐開」到剛好用滿,再用陰影跟亮部微調中間的層次——這個順序背後的邏輯,跟前面攝影基礎分頁講的<a href="#fund:03-metering-histogram.html">直方圖判讀</a>是同一套:先確定黑跟白的邊界在哪,才知道中間的細節該怎麼分配。</p>
+</div>
+
+<h3>飽和度跟自然飽和度,不是同一個東西</h3>
+<div class="tw"><table>
+<tr><th></th><th>飽和度(Saturation)</th><th>自然飽和度(Vibrance)</th></tr>
+<tr><td>作用方式</td><td>畫面裡所有顏色一視同仁,均勻加強</td><td>已經很鮮豔的顏色加強幅度較小,較淡的顏色加強幅度較大</td></tr>
+<tr><td>對膚色的影響</td><td>膚色也會一起被加深,容易變得不自然、偏橘偏紅</td><td>刻意保護膚色一類的中等飽和度區域,不容易失真</td></tr>
+<tr><td>什麼時候用</td><td>整體色彩偏淡、需要大幅拉高時謹慎使用</td><td>日常想讓畫面更「討喜」但不想動到膚色時的首選</td></tr>
+</table></div>
+<p><span class="src s-gen">通用知識</span> 兩者常被放在同一區塊,容易讓新手以為是同一顆滑桿的兩種叫法——實際上它們的演算法邏輯不同,拍人像的素材尤其該優先用自然飽和度,避免皮膚顏色跑掉。</p>
+
+<div class="drill"><span class="lbl">練習</span>
+<ol>
+<li>找一張白平衡明顯偏色的照片(室內鎢絲燈拍的最明顯),只用色溫、色調兩個滑桿校正回中性灰,體會兩軸分別在做什麼。</li>
+<li>同一張照片,分別把飽和度跟自然飽和度各拉到同樣的視覺強度,比較兩者對膚色/植物綠色的影響差在哪裡。</li>
+<li>用黑色、白色兩個控制項把一張發灰、對比不足的照片撐開,再用陰影、亮部細修中間層次。</li>
+</ol></div>
+</div></section>

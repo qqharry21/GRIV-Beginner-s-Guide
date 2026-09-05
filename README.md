@@ -1,7 +1,8 @@
 # 攝影教學技巧指南
 
-一個多分頁的攝影教學網站：一個「攝影基礎」分頁教曝光、構圖思維、攝影眼這些不分機型的共通原理，
-其餘分頁是各台相機的完整操作指南（目前有 RICOH GR IV、DJI Osmo Pocket 4 Pro，之後還會加）。
+一個多分頁的攝影教學網站：「攝影基礎」分頁教曝光、構圖思維、攝影眼這些不分機型的共通原理，
+「攝影進階」分頁教拍完之後的後製（照片調色、DaVinci Resolve 剪輯），其餘分頁是各台相機的完整
+操作指南（目前有 RICOH GR IV、DJI Osmo Pocket 4 Pro，之後還會加）。
 純靜態網站，無任何建置步驟、無框架、無相依套件——新增一個分頁就是開一個資料夾。
 
 ---
@@ -83,6 +84,12 @@ content/
       00-what-is-it.html
       01-body-and-gestures.html
       ...
+  advanced/                      ← 「攝影進階」分頁(調色與剪輯,不分機型)
+    manifest.json
+    chapters/
+      00-intro.html
+      01-color-fundamentals.html
+      ...
 ```
 
 ### `tabs.json` 長什麼樣子
@@ -91,7 +98,8 @@ content/
 [
   { "id": "fund",       "label": "攝影基礎",     "dir": "./content/fund" },
   { "id": "griv",       "label": "GR IV",         "dir": "./content/griv" },
-  { "id": "pocket4pro", "label": "Pocket 4 Pro",  "dir": "./content/pocket4pro" }
+  { "id": "pocket4pro", "label": "Pocket 4 Pro",  "dir": "./content/pocket4pro" },
+  { "id": "advanced",   "label": "攝影進階",     "dir": "./content/advanced" }
 ]
 ```
 
@@ -191,9 +199,10 @@ content/
 
 ### 殼層做的事
 
-`index.html` 剩下的內容只有:側邊欄 DOM、搜尋 modal、日夜切換按鈕、PWA 註冊,以及一支 JS 引擎:
+`index.html` 剩下的內容只有:全域頂列(`#globalHeader`,固定在最上層,只放品牌字樣跟日夜切換
+icon button)、側邊欄 DOM(內含分頁切換用的下拉選單)、搜尋 modal、PWA 註冊,以及一支 JS 引擎:
 
-- 讀 `tabs.json`,畫出分頁切換按鈕
+- 讀 `tabs.json`,把每個分頁畫成 `#tabSelect` 下拉選單裡的一個 `<option>`
 - 切換分頁時 `fetch` 該分頁的 `manifest.json`,再平行 `fetch` 每一章的 HTML,注入 `#main`
 - 用注入後的實際 DOM 重建側邊欄清單、OSD 編號、上一章/下一章導覽
 - 用注入後的實際 DOM 重建搜尋索引(搜尋只在**目前這個分頁**裡搜,這是刻意的——切到 GR IV 分頁
@@ -374,7 +383,8 @@ Instagram 的官方 Graph API 只開放給 Business / Creator 帳號,且需要�
 
 ## 八、其他功能
 
-- **日間 / 夜間模式**:側邊欄與頂端列的「顯示」按鈕,循環切換 `自動 → 日間 → 夜間`。
+- **日間 / 夜間模式**:全域頂列(`#globalHeader`,固定在畫面最上方,桌機手機都看得到)右側的
+  icon button(`#themeBtn`),點一下循環切換 `自動 → 日間 → 夜間`,圖示跟 `aria-label` 會跟著換。
 - **RWD**:手機、平板、桌機、橫式直式都做過處理,含 iPhone 瀏海與底部安全區(safe-area)。
 - **列印**:直接列印會輸出目前分頁的全部章節,每章分頁,自動隱藏側邊欄、搜尋介面與分頁切換列。
   互動診斷章節的操作介面會自動收起,答案卡全部展開,印出來是一份完整的平鋪對照表。

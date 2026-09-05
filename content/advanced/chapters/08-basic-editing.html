@@ -1,0 +1,64 @@
+<section data-t="基礎剪接手法:時間軸、修剪工具、轉場、音量正規化" data-g="剪輯入門">
+<div class="osd"><span class="hot">進階</span><span class="no"></span></div>
+<div class="wrap">
+<h2 class="ch">基礎剪接手法:時間軸、修剪工具、轉場、音量正規化</h2>
+<p class="sub">認識完介面,這一章開始真正動手剪——時間軸怎麼堆疊、剪接點怎麼修、聲音怎麼不忽大忽小。</p>
+
+<h3>時間軸與軌道:上面的蓋住下面的</h3>
+<p>Edit 頁面的時間軸由一條條水平的「軌道」堆疊而成:影像軌從下往上疊,<strong>上層軌道的畫面會蓋住下層</strong>(常用來做子母畫面、疊字幕);音訊軌則彼此混合播放,而不是互相遮蓋 <span class="src s-gen">通用知識</span>。剛開始不用想得太複雜,一段簡單的 Vlog 通常一條影像軌、一到兩條音訊軌(現場收音 + 配樂)就夠用。</p>
+
+<h3>四種修剪手法,分清楚會影響到誰</h3>
+<p>剪接點微調時,不同的修剪方式會影響時間軸上其他素材的位置,搞混很容易把整條時間軸的節奏弄亂 <span class="src s-gen">通用知識</span>。</p>
+<figure>
+<svg viewBox="0 0 560 200" role="img" aria-label="Ripple 修剪會把後面所有素材往前後移動,Roll 修剪只移動共用剪接點、不影響其他素材長度">
+<rect width="560" height="200" fill="#fff"/>
+<g font-family="Noto Sans TC">
+<text x="20" y="24" font-size="12" font-weight="700" fill="#16191B">Ripple(漣漪修剪)</text>
+<rect x="20" y="35" width="120" height="34" fill="#D8E4EC" stroke="#16191B"/>
+<rect x="140" y="35" width="80" height="34" fill="#B8862C" fill-opacity=".35" stroke="#B8862C" stroke-width="2"/>
+<rect x="220" y="35" width="120" height="34" fill="#8A9A7E" stroke="#16191B"/>
+<path d="M220 35 v34" stroke="#C4453C" stroke-width="2"/>
+<text x="220" y="85" text-anchor="middle" font-size="10" fill="#C4453C">縮短這裡</text>
+<path d="M340 52 h30" stroke="#37C97A" stroke-width="2" marker-end="url(#arrow3)"/>
+<text x="380" y="30" font-size="10" fill="#63676B">後面素材</text>
+<text x="380" y="42" font-size="10" fill="#63676B">整段往前移</text>
+
+<text x="20" y="130" font-size="12" font-weight="700" fill="#16191B">Roll(滾動修剪)</text>
+<rect x="20" y="141" width="120" height="34" fill="#D8E4EC" stroke="#16191B"/>
+<rect x="140" y="141" width="120" height="34" fill="#8A9A7E" stroke="#16191B"/>
+<path d="M140 141 v34" stroke="#2F5F91" stroke-width="3"/>
+<text x="140" y="191" text-anchor="middle" font-size="10" fill="#2F5F91">只移動這條共用邊界</text>
+<rect x="260" y="141" width="120" height="34" fill="none" stroke="#D6D6D1" stroke-dasharray="3 3"/>
+<text x="450" y="163" font-size="10" fill="#63676B">後面素材位置不變</text>
+<defs><marker id="arrow3" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#37C97A"/></marker></defs>
+</g>
+</svg>
+<figcaption>Ripple 修剪縮短或延長一段素材時,後面所有素材會整段跟著往前或往後移動,總長度跟著改變;Roll 修剪則是移動兩段素材共用的那個剪接點,一邊變長、另一邊等量變短,後面的素材位置完全不受影響。</figcaption>
+</figure>
+<div class="tw"><table>
+<tr><th>修剪方式</th><th>動的是什麼</th><th>對其他素材的影響</th></tr>
+<tr><td>Ripple(漣漪)</td><td>單一素材的頭或尾</td><td>後面所有素材整段跟著移動,總長度改變</td></tr>
+<tr><td>Roll(滾動)</td><td>兩段素材共用的剪接點</td><td>一邊變長、另一邊等量變短,其他素材完全不動</td></tr>
+<tr><td>Slip(滑動)</td><td>素材本身的入點/出點,長度跟位置都不變</td><td>只改變這段素材「播放的是原始檔案裡的哪一段」,時間軸上完全看不出變化</td></tr>
+<tr><td>Slide(滑移)</td><td>整段素材在時間軸上前後移動</td><td>前後相鄰的素材會自動延長或縮短來填補空隙,這段素材本身長度不變</td></tr>
+</table></div>
+
+<h3>J-Cut 與 L-Cut:讓剪接點不要那麼生硬</h3>
+<p>畫面切到下一顆鏡頭之前,先讓聲音提前進來(J-Cut);或是畫面已經切走,讓上一顆鏡頭的聲音多留一下(L-Cut)——這是讓剪接感覺流暢、不生硬的常用技巧,新聞、訪談、Vlog 剪輯都很常見 <span class="src s-gen">通用知識</span>。做法是把音訊軌跟影像軌的剪接點錯開,而不是永遠對齊在同一個時間點。</p>
+
+<h3>轉場:大多數時候不需要</h3>
+<div class="box tip">
+<span class="lbl">硬切(straight cut)才是預設選項</span>
+<p style="margin-bottom:0"><span class="src s-mine">本站建議</span> 新手很容易在每個剪接點都加一個轉場特效,結果整支影片看起來花俏又業餘。實際上大多數專業剪輯的預設是<strong>硬切</strong>——鏡頭直接切換,不加任何效果,觀眾根本不會注意到。溶接(Dissolve)這類轉場效果通常只在<strong>明確的時間跳躍或場景轉換</strong>時使用(例如「幾小時後」),用來表示中間省略了一段時間,不是拿來讓剪接點「看起來比較厲害」。</p>
+</div>
+
+<h3>聲音基礎:音量正規化</h3>
+<p>不同素材錄下來的音量大小往往不一致,同一支影片裡忽大忽小的音量會讓觀眾很難受,甚至需要一直調整裝置音量收看 <span class="src s-gen">通用知識</span>。Fairlight 頁面的音量正規化功能會把選取的素材自動調整到一個目標響度(常用單位是 LUFS),大多數社群平台跟串流服務都有各自建議的響度標準,正規化時可以直接選對應的平台預設。</p>
+
+<div class="drill"><span class="lbl">練習</span>
+<ol>
+<li>把三、四段素材排上時間軸,分別練習用 Ripple 跟 Roll 修剪同一個剪接點,觀察後面素材位置的差異。</li>
+<li>找一段有對話的素材,試著做一次 J-Cut 或 L-Cut,比較跟硬切相比,剪接點是否感覺更順。</li>
+<li>把時間軸上音量明顯不一致的幾段素材,用音量正規化功能調整到接近的響度。</li>
+</ol></div>
+</div></section>
